@@ -4,11 +4,36 @@
   
     
     <entry>
-      <title>《一号文章(日记？)》</title>
+      <title>开个python坑</title>
+      <link href="/2019/10/02/py/"/>
+      <url>/2019/10/02/py/</url>
+      
+        <content type="html"><![CDATA[<p><strong><em>python</em></strong><br>&emsp;&emsp;之前学的每门语言都是浅浅浅浅浅浅浅尝辄止看看能不能深入一点</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>《一号文章(记录)》</title>
       <link href="/2019/10/01/article1/"/>
       <url>/2019/10/01/article1/</url>
       
-        <content type="html"><![CDATA[<h2 id="2019年"><a href="#2019年" class="headerlink" title="2019年"></a>2019年</h2><h3 id="9月"><a href="#9月" class="headerlink" title="9月"></a>9月</h3><h4 id="2019-9-29"><a href="#2019-9-29" class="headerlink" title="2019.9.29"></a>2019.9.29</h4><p><strong><em>搭建自己的博客吧</em></strong><br>附上连接 <a href="https://zhuanlan.zhihu.com/p/35668237" target="_blank" rel="noopener">参考</a> <a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md" target="_blank" rel="noopener">原作者</a></p><h3 id="10月"><a href="#10月" class="headerlink" title="10月"></a>10月</h3><h4 id="2019-10-1"><a href="#2019-10-1" class="headerlink" title="2019.10.1"></a>2019.10.1</h4><p><strong><em>博客重建成功但我还是不知道写啥</em></strong><br>石头：159<br>呼符：0<br>消耗：<del>5呼符</del><br>&emsp;&emsp;文章时不要开两个git界面一个运行着服务，一个提交更改。会有蜜汁错误昨天把我搞炸了费半天劲重建。文章也不要乱删直接改配置内容原因同上。分类标签不要乱写不好去除<br>&emsp;&emsp;图片路径要谨慎“medias/banner/0.jpg”这么写少了个/，就在该文件里找图了而不是在根的medias找。幸好这时候可以直接改配置，正确写法应是“/medias/banner/0.jpg” 我枯了</p>]]></content>
+        <content type="html"><![CDATA[<div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=30284543&auto=1&height=66"></iframe><br></div><h2 id="2019年"><a href="#2019年" class="headerlink" title="2019年"></a>2019年</h2><h3 id="9月"><a href="#9月" class="headerlink" title="9月"></a>9月</h3><h4 id="2019-9-29"><a href="#2019-9-29" class="headerlink" title="2019.9.29"></a>2019.9.29</h4><p><strong><em>搭建自己的博客吧</em></strong><br>附上连接 <a href="https://zhuanlan.zhihu.com/p/35668237" target="_blank" rel="noopener">参考</a> <a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md" target="_blank" rel="noopener">原作者</a></p><h3 id="10月"><a href="#10月" class="headerlink" title="10月"></a>10月</h3><h4 id="2019-10-1"><a href="#2019-10-1" class="headerlink" title="2019.10.1"></a>2019.10.1</h4><p><strong><em>博客重建成功但我还是不知道写啥</em></strong><br>石头：159<br>呼符：0<br>消耗：<del>5呼符</del><br>&emsp;&emsp;写文章时不要开两个git界面，一个运行着服务，一个提交更改。会有蜜汁错误昨天把我搞炸了费半天劲重建。文章也不要乱删直接改配置内容原因同上。分类标签不要乱写不好去除<br>&emsp;&emsp;图片路径要谨慎“medias/banner/0.jpg”这么写少了个/，就在该文件里找图了而不是在根的medias找。幸好这时候可以直接改配置，正确写法应是“/medias/banner/0.jpg” 我枯了</p><h4 id="2019-10-2"><a href="#2019-10-2" class="headerlink" title="2019.10.2"></a>2019.10.2</h4><p>石头：160<br>呼符：0<br>为博客更新了图片加了一首音乐<br>在<a href="https://wallhaven.cc/" target="_blank" rel="noopener">这里</a>找了半天图。。。</p>]]></content>
       
       
       <categories>
