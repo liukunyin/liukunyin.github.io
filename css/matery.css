@@ -168,7 +168,7 @@ mark {
 }
 
 .text-color {
-    color: #0f9d58 !important;
+    color: #171a21 !important;
 }
 
 .white-color {
@@ -180,7 +180,8 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    /*background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);*/
+    background-color: #171a21;
     opacity: 0.8;
 }
 
@@ -1166,7 +1167,7 @@ table tr:nth-child(2n), thead {
     left: 18px;
     height: 100%;
     width: 4px;
-    background: #0f9d58;
+    background: #171a21;
 }
 
 @media only screen and (min-width: 900px) {
@@ -1381,7 +1382,7 @@ table tr:nth-child(2n), thead {
 }
 
 .post-statis .statis .count a {
-    color: #42b983;
+    color: #171a21;
 }
 
 .post-statis .statis .name {
@@ -1402,8 +1403,8 @@ table tr:nth-child(2n), thead {
     margin: 0 0.5rem;
     padding: 0;
     color: #fff;
-    border: 1px solid #0f9d58;
-    background: radial-gradient(#4cbf30, #0f9d58);;
+    border: 1px solid #171a21;
+    background: radial-gradient(#171a21, #171a21);
     font-size: 0.9rem;
     border-radius: 50%;
     box-shadow: 0 4px 6px rgba(50, 50, 93, .21), 0 2px 3px rgba(0, 0, 0, .1);
@@ -1882,4 +1883,7 @@ footer .copy-right {
 	 height:50px;
 	 padding:0px;
 	 margin:0px;
+}
+svg{
+    color: #171a21!important;
 }
