@@ -4,8 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, 迦勒底">
-    <meta name="description" content="标签 | 迦勒底">
+    <meta name="keywords" content="contact, 迦勒底">
+    <meta name="description" content="contact | 迦勒底">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>标签 | 迦勒底</title>
+    <title>contact | 迦勒底</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -331,55 +331,63 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
 <main class="content">
 
-    
 
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fa fa-tags"></i>&nbsp;&nbsp;文章标签
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/学习记录/" title="学习记录: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="学习记录" style="background-color: #F9EBEA;">学习记录
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+          <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+        <div id="gitalk-container"></div>
+        <script>
+        var gitalk = new Gitalk({
+          clientID: '7fcac354937af4f1aa50', //Client ID
+          clientSecret: 'b1d24b2b44d06d2fc82c3835ca2d68c0c5f736c6', //Client Secret
+          repo: 'blogtalk',
+          owner: 'liukunyin',
+          admin: ['liukunyin'],
+          id: location.pathname,      // Ensure uniqueness and length less than 50
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+        gitalk.render('gitalk-container')
+        </script>
+
+    <div id="contact" class="container contact-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-content article-card-content">
+                    <div id="articleContent" data-aos="fade-up">
+                        <script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="card">
+            
+
+            
+
+            
+
+            
+
+            
+        </div>
     </div>
-</div>
-
-    
-    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
-<style type="text/css">
-    #tag-wordcloud {
-        width: 100%;
-        height: 300px;
-    }
-</style>
-
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="tag-wordcloud" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
-<script type="text/javascript">
-    
-
-    $('#tag-wordcloud').jQCloud([{"text":"学习记录","weight":1,"link":"https://liukunyin.github.io/lky.github.io/tags/学习记录/"}], {
-        autoResize: true
-    });
-</script>
-    
-
 </main>
 
 <footer class="page-footer bg-color">

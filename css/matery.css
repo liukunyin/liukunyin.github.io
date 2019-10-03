@@ -163,7 +163,8 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    /*background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);*/
+    background-color: #171a21;
 }
 
 .text-color {
@@ -1855,13 +1856,13 @@ footer .copy-right {
 }
 .m-nav-item{position: relative;}
 .m-nav-item ul{display: none;}
-.m-nav-item ul li{	
+.m-nav-item ul li{
  width:255px;
  height:50px;
  line-height: 50px;
  text-align: center;
 }
-.m-nav-show .m-icon{    
+.m-nav-show .m-icon{
     -webkit-transform: rotate(90deg)!important;
     -moz-transform: rotate(90deg)!important;
     -o-transform: rotate(90deg)!important;
@@ -1876,7 +1877,7 @@ footer .copy-right {
 .m-nav-show,.m-nav-item>a:hover{color: #FFF;background:rgba(255,255,255,.8);}
 .m-nav-show>a:before,.m-nav-item>a:hover:before{opacity:1;}
 .m-nav-item .m-icon{
-	 position:absolute; 
+	 position:absolute;
 	 right:15px;
 	 height:50px;
 	 padding:0px;
