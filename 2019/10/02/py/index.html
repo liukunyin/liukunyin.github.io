@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="keywords" content="python, 迦勒底">
     <meta name="description" content="python  之前学的每门语言都是浅浅浅浅浅浅浅尝辄止看看能不能深入一点
-
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-   ">
+爬虫设置代理ip查代理ip的网址查当前ip的网址
+import urllib.request
+import random
+url = &#39;http://icanhaz">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -41,7 +41,8 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -468,7 +469,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        82
+                        228
                     </div>
                     
 
@@ -492,6 +493,32 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><strong><em>python</em></strong><br>  之前学的每门语言都是浅浅浅浅浅浅浅尝辄止看看能不能深入一点</p>
+<h2 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h2><h3 id="设置代理ip"><a href="#设置代理ip" class="headerlink" title="设置代理ip"></a>设置代理ip</h3><p>查<a href="https://cn-proxy.com/" target="_blank" rel="noopener">代理ip</a>的网址<br>查<a href="http://icanhazip.com" target="_blank" rel="noopener">当前ip</a>的网址</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
+<span class="token keyword">import</span> random
+url <span class="token operator">=</span> <span class="token string">'http://icanhazip.com'</span>
+
+<span class="token comment" spellcheck="true">#参数是一个字典{'类型','代理ip:端口号'}</span>
+iplist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'124.156.108.71:82'</span><span class="token punctuation">,</span><span class="token string">'183.146.213.157:80'</span><span class="token punctuation">,</span><span class="token string">'39.137.69.6:80'</span><span class="token punctuation">]</span>
+proxy_support <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>ProxyHandler<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'http'</span><span class="token punctuation">:</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>iplist<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#定制、创建一个opener</span>
+opener <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>proxy_support<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#改useragent</span>
+opener<span class="token punctuation">.</span>addheaders <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'User-Agent'</span><span class="token punctuation">,</span><span class="token string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">#安装opener</span>
+urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>install_opener<span class="token punctuation">(</span>opener<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#调用</span>
+response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+html <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#.encode('GBK','ignore').decode('GBk')</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'当前代理IP是'</span><span class="token operator">+</span>html<span class="token punctuation">)</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2019-10-06 22:04:57</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1069,7 +1096,7 @@
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4k</span>&nbsp;字
+                class="white-color">4.1k</span>&nbsp;字
             
             
             
