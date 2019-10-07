@@ -7,9 +7,10 @@
     <meta name="keywords" content="python, 迦勒底">
     <meta name="description" content="python  之前学的每门语言都是浅浅浅浅浅浅浅尝辄止看看能不能深入一点
 爬虫设置代理ip查代理ip的网址查当前ip的网址
+#2019-10-06 22:04:57
 import urllib.request
 import random
-url = &#39;http://icanhaz">
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -469,7 +470,7 @@ url = &#39;http://icanhaz">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        228
+                        360
                     </div>
                     
 
@@ -494,7 +495,8 @@ url = &#39;http://icanhaz">
             <div id="articleContent">
                 <p><strong><em>python</em></strong><br>  之前学的每门语言都是浅浅浅浅浅浅浅尝辄止看看能不能深入一点</p>
 <h2 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h2><h3 id="设置代理ip"><a href="#设置代理ip" class="headerlink" title="设置代理ip"></a>设置代理ip</h3><p>查<a href="https://cn-proxy.com/" target="_blank" rel="noopener">代理ip</a>的网址<br>查<a href="http://icanhazip.com" target="_blank" rel="noopener">当前ip</a>的网址</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#2019-10-06 22:04:57</span>
+<span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
 <span class="token keyword">import</span> random
 url <span class="token operator">=</span> <span class="token string">'http://icanhazip.com'</span>
 
@@ -517,8 +519,38 @@ response <span class="token operator">=</span> urllib<span class="token punctuat
 html <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#.encode('GBK','ignore').decode('GBk')</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'当前代理IP是'</span><span class="token operator">+</span>html<span class="token punctuation">)</span>
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>2019-10-06 22:04:57</p>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="贴吧图片"><a href="#贴吧图片" class="headerlink" title="贴吧图片"></a>贴吧图片</h3><p>正则表达式写法很重要</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#2019-10-07 20:54:07</span>
+<span class="token comment" spellcheck="true">#fun.py</span>
+<span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
+<span class="token keyword">import</span> re
+<span class="token keyword">def</span>  <span class="token function">open_url</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  req <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+  req<span class="token punctuation">.</span>add_header<span class="token punctuation">(</span><span class="token string">'User-Agent'</span><span class="token punctuation">,</span><span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'</span><span class="token punctuation">)</span>
+  page <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">)</span>
+  html <span class="token operator">=</span> page<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> html
+
+<span class="token keyword">def</span> <span class="token function">get_img_tieba</span><span class="token punctuation">(</span>html<span class="token punctuation">,</span>path<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  p <span class="token operator">=</span> r<span class="token string">'&lt;img class="BDE_Image".*?src="([^"]+\.jpg)"'</span>
+  imglist <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>p<span class="token punctuation">,</span>html<span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true"># for each in imglist:</span>
+  <span class="token comment" spellcheck="true">#   print(each)</span>
+
+  <span class="token keyword">for</span> each <span class="token keyword">in</span> imglist<span class="token punctuation">:</span>
+    filename <span class="token operator">=</span> path<span class="token operator">+</span>each<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span>each<span class="token punctuation">,</span>filename<span class="token punctuation">,</span>None<span class="token punctuation">)</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> fun
+<span class="token keyword">import</span> re
+
+html<span class="token operator">=</span>fun<span class="token punctuation">.</span>open_url<span class="token punctuation">(</span><span class="token string">'https://tieba.baidu.com/p/6234466251'</span><span class="token punctuation">)</span>
+
+fun<span class="token punctuation">.</span>get_img_tieba<span class="token punctuation">(</span>html<span class="token punctuation">,</span><span class="token string">'F:/lkyblogcode/python/'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1096,7 +1128,7 @@ html <span class="token operator">=</span> response<span class="token punctuatio
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.1k</span>&nbsp;字
+                class="white-color">4.3k</span>&nbsp;字
             
             
             
