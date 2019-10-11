@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta name="keywords" content="python, 迦勒底">
     <meta name="description" content="python  之前学的每门语言都是浅浅浅浅浅浅浅尝辄止看看能不能深入一点
-爬虫设置代理ip查代理ip的网址查当前ip的网址
-#2019-10-06 22:04:57
-import urllib.request
-import random
-">
+文件读取#2019-10-11 21:00:57
+# 读
+f = open(&#34;/tmp/foo.txt&#34;, &#34;w&#34;)
+
+f.write( &#34;Python 是一个非常">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -470,7 +470,7 @@ import random
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1k
+                        1.2k
                     </div>
                     
 
@@ -494,6 +494,34 @@ import random
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><strong><em>python</em></strong><br>  之前学的每门语言都是浅浅浅浅浅浅浅尝辄止看看能不能深入一点</p>
+<h2 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#2019-10-11 21:00:57</span>
+<span class="token comment" spellcheck="true"># 读</span>
+f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"/tmp/foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
+
+f<span class="token punctuation">.</span>write<span class="token punctuation">(</span> <span class="token string">"Python 是一个非常好的语言。\n是的，的确非常好!!\n"</span> <span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 关闭打开的文件</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">##另一种写法</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'TTBT.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#写</span>
+<span class="token comment" spellcheck="true"># 打开一个文件</span>
+f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"/tmp/foo.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span>
+
+str <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 关闭打开的文件</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#另一种写法</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'TTBT.txt'</span><span class="token punctuation">,</span> <span class="token string">'a+'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"ss"</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h2><h3 id="设置代理ip"><a href="#设置代理ip" class="headerlink" title="设置代理ip"></a>设置代理ip</h3><p>查<a href="https://cn-proxy.com/" target="_blank" rel="noopener">代理ip</a>的网址<br>查<a href="http://icanhazip.com" target="_blank" rel="noopener">当前ip</a>的网址</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#2019-10-06 22:04:57</span>
 <span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
@@ -551,7 +579,7 @@ html<span class="token operator">=</span>fun<span class="token punctuation">.</s
 
 fun<span class="token punctuation">.</span>get_img_tieba<span class="token punctuation">(</span>html<span class="token punctuation">,</span><span class="token string">'F:/lkyblogcode/python/'</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Scarpy框架"><a href="#Scarpy框架" class="headerlink" title="Scarpy框架"></a>Scarpy框架</h3><p>2019-10-09 22:43:57</p>
+<h3 id="Scarpy框架"><a href="#Scarpy框架" class="headerlink" title="Scarpy框架"></a>Scarpy框架</h3><p>2019-10-09 22:43:57<br><a href="'http://www.scrapyd.cn/'">文档</a></p>
 <h4 id="创建一个Scrapy项目"><a href="#创建一个Scrapy项目" class="headerlink" title="创建一个Scrapy项目"></a>创建一个Scrapy项目</h4><p>cd到一个目录执行”scrapy startproject 名称</p>
 <h4 id="定义Item容器"><a href="#定义Item容器" class="headerlink" title="定义Item容器"></a>定义Item容器</h4><p>修改items.py的内容</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#items.py</span>
@@ -566,10 +594,10 @@ fun<span class="token punctuation">.</span>get_img_tieba<span class="token punct
     desc <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="编写爬虫"><a href="#编写爬虫" class="headerlink" title="编写爬虫"></a>编写爬虫</h4><p>编写爬虫类Spider，Spider是用户编写用于从网站上爬取数据的类。其包含了一个用于下载的初始URL，然后是如何跟进网页中的链接以及如何分析页面中的内容，还有提取生成item的方法</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#dmoz_spider</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#dmoz_spider此为简化写法详见教程</span>
 <span class="token keyword">import</span> scrapy
 
-<span class="token keyword">class</span> <span class="token class-name">DmozSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">class</span> <span class="token class-name">DmozSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true">#需要继承scrapy.Spider类</span>
 
   <span class="token comment" spellcheck="true">#scrapy crawl 'name'</span>
   name <span class="token operator">=</span> <span class="token string">"dmoz"</span>
@@ -591,7 +619,7 @@ fun<span class="token punctuation">.</span>get_img_tieba<span class="token punct
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p>提取网页中需要的数据，在Scrapy中是使用一种基于XPath和CSS的表达式机制：Scrapy Selectors<br>Selector是一个选择器，它有四个基本的方法：<br>  xpath():传入xpath表达式，返回该表达式所对应的所有节点的selector list列表。<br>  css():传入Css表达式，返回该表达式所对应的所有节点的selector list列表。<br>  extract():序列化该节点为unicode字符串并返回list。<br>  re():根据传入的正则表达式对数据进行提取，返回unicode字符串list列表。</p>
-<p>①在shell里实验<br>scrapy shell “url”之后使用上述方法筛选需要的信息<br>response.xpath(‘//标签名’)  选出所有标签的内容<br>response.xpath(‘//标签名’).extract() ……并字符串化</p>
+<p>①在shell里实验<br>scrapy shell “url”之后使用上述方法筛选需要的信息(要用双引号)<br>response.xpath(‘//标签名’)  选出所有标签的内容<br>response.xpath(‘//标签名’).extract() ……并字符串化</p>
 <p>response.xpath(‘//ul/li/a/@href’)<br>response.xpath(‘//ul[@class=”…”]/li’)根据类名筛</p>
 <p>②实验好了修改爬虫代码</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#dmoz_spider</span>
@@ -624,6 +652,7 @@ fun<span class="token punctuation">.</span>get_img_tieba<span class="token punct
         desc <span class="token operator">=</span> site<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'div[@class="listbox"]/h4/a/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>title<span class="token punctuation">,</span>link<span class="token punctuation">,</span>desc<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>命令行执行scrapy crawl ‘id’</p>
 <h4 id="存储内容"><a href="#存储内容" class="headerlink" title="存储内容"></a>存储内容</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#dmoz_spider</span>
 <span class="token keyword">import</span> scrapy
 <span class="token keyword">from</span> tutorial<span class="token punctuation">.</span>items <span class="token keyword">import</span> DmozItem
@@ -660,6 +689,7 @@ fun<span class="token punctuation">.</span>get_img_tieba<span class="token punct
     <span class="token keyword">return</span> items
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>命令行执行scrapy crawl dmoz -o items.json -t json<br>-o 文件名  -t 文件格式<br>修改输出文件编码：在settings.py加入FEED_EXPORT_ENCODING = ‘utf-8’即可</p>
+<h3 id="scrapy-css选择器使用"><a href="#scrapy-css选择器使用" class="headerlink" title="scrapy css选择器使用"></a>scrapy css选择器使用</h3><p><a href="http://www.scrapyd.cn/doc/146.html" target="_blank" rel="noopener">教程</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1237,7 +1267,7 @@ fun<span class="token punctuation">.</span>get_img_tieba<span class="token punct
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.1k</span>&nbsp;字
+                class="white-color">6.1k</span>&nbsp;字
             
             
             
