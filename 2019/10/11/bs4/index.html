@@ -5,10 +5,11 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Beautiful Soup 爬虫, 迦勒底">
-    <meta name="description" content="
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return">
+    <meta name="description" content="Beautiful Soup 4.2.0 文档¶
+bs4库的简单应用request.py使用sublimetext会出现一些编码问题，先用pycharm吧
+#2019-10-11 21:00:57
+import request
+#导入bs4">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -472,7 +473,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        52
+                        244
                     </div>
                     
 
@@ -495,7 +496,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/" target="_blank" rel="noopener">Beautiful Soup 4.2.0 文档¶</a></p>
+<h2 id="bs4库的简单应用"><a href="#bs4库的简单应用" class="headerlink" title="bs4库的简单应用"></a>bs4库的简单应用</h2><p><a href="https://liukunyin.github.io/2019/10/11/request/#toc-heading-7">request.py</a><br>使用sublimetext会出现一些编码问题，先用pycharm吧</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#2019-10-11 21:00:57</span>
+<span class="token keyword">import</span> request
+<span class="token comment" spellcheck="true">#导入bs4模块</span>
+<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+html <span class="token operator">=</span> request<span class="token punctuation">.</span>getHtmlText<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#做一个美味汤</span>
+soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span> <span class="token string">'lxml'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出结果</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>prettify<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h2 id="几个结构化数据的方式"><a href="#几个结构化数据的方式" class="headerlink" title="几个结构化数据的方式"></a>几个结构化数据的方式</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#找到文档的title</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>title<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#title的name值</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>title<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#title中的字符串String</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>title<span class="token punctuation">.</span>string<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#title的父亲节点的name属性</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>title<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#文档的第一个找到的段落</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>p<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#找到的p的class属性值</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>p<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#找到a标签</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>a<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#找到所有的a标签</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#找到id值等于3的a标签</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span>id<span class="token operator">=</span><span class="token string">"link3"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#获取所有文字内容</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>get_text<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1092,7 +1135,7 @@
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.1k</span>&nbsp;字
+                class="white-color">6.3k</span>&nbsp;字
             
             
             
