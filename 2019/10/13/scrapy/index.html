@@ -478,7 +478,7 @@ scrapy startproject zimuku
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        578
+                        588
                     </div>
                     
 
@@ -508,7 +508,7 @@ scrapy startproject zimuku
 <blockquote>
 <p>目录结构<br>├── zimuku                  #外层目录<br>│   ├── <strong>init</strong>.py         #初始化脚本<br>│   ├── <strong>pycache</strong>         #Python缓存文件。暂时无视<br>│   ├── items.py            #Items代码模板，继承类自scrapy.Item<br>│   ├── middlewares.py      #Middlewares代码模板(继承类)<br>│   ├── pipelines.py        #Pipelines代码模板(继承类)<br>│   ├── settings.py         #Scrapy爬虫的配置文件<br>│   └── spiders             #Spiders代码模板目录 我们写爬虫的地方<br>│       ├── <strong>init</strong>.py<br>│       └── <strong>pycache</strong><br>└── scrapy.cfg              #部署爬虫的配置文件</p>
 </blockquote>
-<p>用命令行创建第一个Spider：<br>scrapy genspider demo <a href="http://zimuku.net" target="_blank" rel="noopener">http://zimuku.net</a></p>
+<p>进入到工程文件<br>cd zimuku<br>用命令行创建第一个Spider：<br>scrapy genspider demo <a href="http://zimuku.net" target="_blank" rel="noopener">http://zimuku.net</a></p>
 <blockquote>
 <p>战术总结<br>1.scrapy startproject zimuku<br>2.scrapy genspider demo <a href="http://zimuku.net" target="_blank" rel="noopener">http://zimuku.net</a></p>
 </blockquote>
@@ -571,7 +571,7 @@ ROBOTSTXT_OBEY <span class="token operator">=</span> <span class="token boolean"
 <span class="token comment" spellcheck="true">#只增加了这一行，通过配置告诉Scrapy明白是谁来处理结果</span>
 ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'zimuku.pipelines.ZimukuPipeline'</span><span class="token punctuation">:</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>scrapy crawl demo</p>
+<h3 id="获得结果"><a href="#获得结果" class="headerlink" title="获得结果"></a>获得结果</h3><p>scrapy crawl demo</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -948,29 +948,28 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/10/13/scrapy/">
+                <a href="/2019/10/14/scrapy-1/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="scrapy框架">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Scrapy应用(一)">
                         
-                        <span class="card-title">scrapy框架</span>
+                        <span class="card-title">Scrapy应用(一)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            战术总结
+                            4399&数据存储
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-14
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -983,7 +982,6 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1167,7 +1165,7 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.9k</span>&nbsp;字
+                class="white-color">9.6k</span>&nbsp;字
             
             
             
@@ -1309,7 +1307,7 @@ $(function () {
 
 
   <script type="text/javascript"
-  color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  color="178, 213, 246" opacity='2' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
   </script>
 
 

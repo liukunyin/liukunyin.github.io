@@ -4,13 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="requests库, 迦勒底">
-    <meta name="description" content="转自
-requests.request这些方法都是在requests.request的基础上创建的
-requests.request(method, url, **kwargs)
+    <meta name="keywords" content="Scrapy应用(一), 迦勒底">
+    <meta name="description" content="先创建一个工程scrapy startproject gamecd gamescrapy genspider demo 4399.com
+编写itemsimport scrapy
 
-#以下两句等价
-r = requests.get(&#39;htt">
+
+class GameItem(scrapy.Item):">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@ r = requests.get(&#39;htt">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>requests库 | 迦勒底</title>
+    <title>Scrapy应用(一) | 迦勒底</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -326,13 +325,13 @@ r = requests.get(&#39;htt">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        requests库
+                        Scrapy应用(一)
                     </div>
                 </div>
             </div>
@@ -447,8 +446,8 @@ r = requests.get(&#39;htt">
                                 <span class="chip bg-color">爬虫</span>
                             </a>
                         
-                            <a href="/tags/requests库/" target="_blank">
-                                <span class="chip bg-color">requests库</span>
+                            <a href="/tags/Scrapy/" target="_blank">
+                                <span class="chip bg-color">Scrapy</span>
                             </a>
                         
                     </div>
@@ -471,14 +470,14 @@ r = requests.get(&#39;htt">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-11
+                    2019-10-14
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        804
+                        627
                     </div>
                     
 
@@ -501,103 +500,122 @@ r = requests.get(&#39;htt">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="https://zhuanlan.zhihu.com/p/26673214" target="_blank" rel="noopener">转自</a></p>
-<h2 id="requests-request"><a href="#requests-request" class="headerlink" title="requests.request"></a>requests.request</h2><p><img src="1.png" alt=""><br>这些方法都是在requests.request的基础上创建的</p>
-<pre class="line-numbers language-python"><code class="language-python">requests<span class="token punctuation">.</span>request<span class="token punctuation">(</span>method<span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+                <h2 id="先创建一个工程"><a href="#先创建一个工程" class="headerlink" title="先创建一个工程"></a>先创建一个工程</h2><p>scrapy startproject game<br>cd game<br>scrapy genspider demo 4399.com</p>
+<h2 id="编写items"><a href="#编写items" class="headerlink" title="编写items"></a>编写items</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> scrapy
 
-<span class="token comment" spellcheck="true">#以下两句等价</span>
-r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://api.github.com/events'</span><span class="token punctuation">)</span>
-requests<span class="token punctuation">.</span>request<span class="token punctuation">(</span>method<span class="token operator">=</span><span class="token string">'get'</span><span class="token punctuation">,</span>url<span class="token operator">=</span><span class="token string">"https://api.github.com/events"</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<hr>
-<h2 id="requests-get"><a href="#requests-get" class="headerlink" title="requests.get"></a>requests.get</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#2019-10-11 21:00:57</span>
-这个方法可以接收三个参数，其中第二个默认为None 第三个可选
-<span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> params<span class="token operator">=</span>None<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true">#作用是模拟发起GET请求</span>
-Sends a GET request<span class="token punctuation">.</span>
+<span class="token keyword">class</span> <span class="token class-name">GameItem</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># define the fields for your item here like:</span>
+    <span class="token comment" spellcheck="true"># name = scrapy.Field()</span>
+    name <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    url <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="编写spider"><a href="#编写spider" class="headerlink" title="编写spider"></a>编写spider</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> scrapy
+<span class="token keyword">from</span> game<span class="token punctuation">.</span>items <span class="token keyword">import</span> GameItem
 
-<span class="token comment" spellcheck="true">#模拟获取页面的url链接</span>
-<span class="token punctuation">:</span>param url<span class="token punctuation">:</span> URL <span class="token keyword">for</span> the new <span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">:</span>Request object<span class="token punctuation">.</span>
+<span class="token keyword">class</span> <span class="token class-name">DemoSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">"demo"</span>
+    allowed_domains <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"4399.com"</span><span class="token punctuation">]</span>
+    start_urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'http://4399.com/'</span><span class="token punctuation">]</span>
 
-<span class="token comment" spellcheck="true">#额外参数 字典或字节流格式，可选</span>
-<span class="token punctuation">:</span>param params<span class="token punctuation">:</span> <span class="token punctuation">(</span>optional<span class="token punctuation">)</span> Dictionary <span class="token operator">or</span> bytes to be sent <span class="token keyword">in</span> the query string <span class="token keyword">for</span> the <span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">:</span>Request<span class="token punctuation">.</span>
-
-<span class="token comment" spellcheck="true"># 十二个控制访问参数，比如可以自定义header</span>
-<span class="token punctuation">:</span>param <span class="token operator">**</span>kwargs<span class="token punctuation">:</span> Optional arguments that request takes<span class="token punctuation">.</span>
-
-<span class="token comment" spellcheck="true"># 返回一个Response对象</span>
-<span class="token punctuation">:</span><span class="token keyword">return</span><span class="token punctuation">:</span> <span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">:</span>Response <span class="token operator">&lt;</span>Response<span class="token operator">></span> object
-<span class="token punctuation">:</span>type<span class="token punctuation">:</span> requests<span class="token punctuation">.</span>Response
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>kwargs: 控制访问的参数，均为可选项<br> params : 字典或字节序列，作为参数增加到url中<br> data : 字典、字节序列或文件对象，作为Request的内容 json : JSON格式的数据，作为Request的内容<br> headers : 字典，HTTP定制头<br> cookies : 字典或CookieJar，Request中的cookie<br> auth : 元组，支持HTTP认证功能<br> files : 字典类型，传输文件<br> timeout : 设定超时时间，秒为单位<br> proxies : 字典类型，设定访问代理服务器，可以增加登录认证<br> allow_redirects : True/False，默认为True，重定向开关<br> stream : True/False，默认为True，获取内容立即下载开关<br> verify : True/False，默认为True，认证SSL证书开关<br> cert : 本地SSL证书路径<br> url: 拟更新页面的url链接<br> data: 字典、字节序列或文件，Request的内容<br> json: JSON格式的数据，Request的内容</p>
-</blockquote>
-<hr>
-<h2 id="常用的两个控制访问参数："><a href="#常用的两个控制访问参数：" class="headerlink" title="常用的两个控制访问参数："></a>常用的两个控制访问参数：</h2><h3 id="1-为了伪装成浏览器访问常设置head"><a href="#1-为了伪装成浏览器访问常设置head" class="headerlink" title="1.为了伪装成浏览器访问常设置head"></a>1.为了伪装成浏览器访问常设置head</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
-
-<span class="token comment" spellcheck="true">#常用Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36</span>
-hd <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'User-agent'</span><span class="token punctuation">:</span><span class="token string">'123'</span><span class="token punctuation">}</span>
-
-r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">,</span> headers<span class="token operator">=</span>hd<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>request<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
-<span class="token triple-quoted-string string">'''
-OUT:
-{'User-agent': '123', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive
-'}
-'''</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-设置代理"><a href="#2-设置代理" class="headerlink" title="2.设置代理"></a>2.设置代理</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
-pxs <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">'http'</span><span class="token punctuation">:</span> <span class="token string">'124.156.108.71:82'</span><span class="token punctuation">}</span>
-r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://icanhazip.com/'</span><span class="token punctuation">,</span> proxies<span class="token operator">=</span>pxs<span class="token punctuation">)</span>
-<span class="token keyword">print</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#OUT::124.156.108.71</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="常用Response对象方法"><a href="#常用Response对象方法" class="headerlink" title="常用Response对象方法"></a>常用Response对象方法</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
-r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># 设置正确的编码方式(防止response.text编码错误)</span>
-r<span class="token punctuation">.</span>encoding <span class="token operator">=</span> r<span class="token punctuation">.</span>apparent_encoding
-
-<span class="token comment" spellcheck="true">#HTTP请求的返回状态，比如，200表示成功，404表示失败</span>
-<span class="token keyword">print</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">#HTTP请求中的headers</span>
-<span class="token keyword">print</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">#从header中猜测的响应的内容编码方式</span>
-<span class="token keyword">print</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>encoding<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">#从内容中分析的编码方式（慢）</span>
-<span class="token keyword">print</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>apparent_encoding<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># response.text 返回的是一个 unicode 型的文本数据</span>
-<span class="token comment" spellcheck="true"># response.content 返回的是 bytes 型的二进制数据</span>
-<span class="token keyword">print</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
-<span class="token keyword">print</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
+        name = 名字
+        img = 图标
+        url = 网址
+        '''</span>
+        items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        game_message <span class="token operator">=</span> response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//ul[@class="tm_list"]/li'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> one <span class="token keyword">in</span> game_message<span class="token punctuation">:</span>
+          item <span class="token operator">=</span> GameItem<span class="token punctuation">(</span><span class="token punctuation">)</span>
+          item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> one<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'a/img/@alt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+          item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'www.4399.com'</span><span class="token operator">+</span>one<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'a/@href'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+          items<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> items
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="获取网页的通用框架"><a href="#获取网页的通用框架" class="headerlink" title="获取网页的通用框架"></a>获取网页的通用框架</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<h2 id="编写PIPELINE："><a href="#编写PIPELINE：" class="headerlink" title="编写PIPELINE："></a>编写PIPELINE：</h2><p>我们知道，pipelines.py是用来处理收尾爬虫抓到的数据的，<br>一般情况下，我们会将数据存到本地：</p>
+<ul>
+<li>文本形式： 最基本的方式</li>
+<li>json格式 ：方便其他程序员调用</li>
+<li>数据库： 数据量多时</li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#文本</span>
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> codecs
+<span class="token keyword">import</span> pymysql
+<span class="token keyword">class</span> <span class="token class-name">GamePipeline</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        处理每一个从SZtianqi传过来的item
+        fiename <span class="token operator">=</span> <span class="token string">'F:/爬虫/data/game.txt'</span>
+        <span class="token comment" spellcheck="true"># 从内存以追加的方式打开文件，并写入对应的数据</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span>fiename<span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> item
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#json</span>
+<span class="token keyword">class</span> <span class="token class-name">gjson</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-<span class="token keyword">def</span> <span class="token function">getHtmlText</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 如果状态码不是200 则应发HTTOError异常</span>
-        r<span class="token punctuation">.</span>raise_for_status<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 设置正确的编码方式</span>
-        r<span class="token punctuation">.</span>encoding <span class="token operator">=</span> r<span class="token punctuation">.</span>apparent_encoding
-        <span class="token keyword">return</span> r<span class="token punctuation">.</span>text
-    <span class="token keyword">except</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token string">"Something Wrong!"</span>
+        filename <span class="token operator">=</span> <span class="token string">'F:/爬虫/data/game.json'</span>
 
+        <span class="token comment" spellcheck="true"># 打开json文件，向里面以dumps的方式吸入数据</span>
+        <span class="token comment" spellcheck="true"># 注意需要有一个参数ensure_ascii=False ，不然数据会直接为utf编码的方式存入比如:“/xe15”</span>
+        <span class="token keyword">with</span> codecs<span class="token punctuation">.</span>open<span class="token punctuation">(</span>filename<span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            line <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>dict<span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">,</span> ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'\n'</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>line<span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> item
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="把爬取的网页源代码保存为txt文件"><a href="#把爬取的网页源代码保存为txt文件" class="headerlink" title="把爬取的网页源代码保存为txt文件"></a>把爬取的网页源代码保存为txt文件</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> request
-html <span class="token operator">=</span> request<span class="token punctuation">.</span>getHtmlText<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
-<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span><span class="token string">'a+'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-  f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
-<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-  <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#数据库</span>
+<span class="token keyword">class</span> <span class="token class-name">gmysql</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
+        将爬取的信息保存到mysql
+        '''</span>
+
+        <span class="token comment" spellcheck="true"># 将item里的数据拿出来</span>
+        name <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span>
+        url <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span>
+
+        <span class="token comment" spellcheck="true"># 和本地的scrapyDB数据库建立连接</span>
+        connection <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>
+            host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 连接的是本地数据库</span>
+            user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true"># 自己的mysql用户名</span>
+            passwd<span class="token operator">=</span><span class="token string">'000323624'</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 自己的密码</span>
+            db<span class="token operator">=</span><span class="token string">'scrapyDB'</span><span class="token punctuation">,</span>      <span class="token comment" spellcheck="true"># 数据库的名字</span>
+            charset<span class="token operator">=</span><span class="token string">'utf8mb4'</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true"># 默认的编码方式：</span>
+            cursorclass<span class="token operator">=</span>pymysql<span class="token punctuation">.</span>cursors<span class="token punctuation">.</span>DictCursor<span class="token punctuation">)</span>
+
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token keyword">with</span> connection<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> cursor<span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true"># 创建更新值的sql语句</span>
+                sql <span class="token operator">=</span> <span class="token triple-quoted-string string">"""INSERT INTO game(name,url)
+                        VALUES (%s, %s)"""</span>
+                <span class="token comment" spellcheck="true"># 执行sql语句</span>
+                <span class="token comment" spellcheck="true"># excute 的第二个参数可以将sql缺省语句补全，一般以元组的格式</span>
+                cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>
+                    sql<span class="token punctuation">,</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span>url<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+            <span class="token comment" spellcheck="true"># 提交本次插入的记录</span>
+            connection<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">finally</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 关闭连接</span>
+            connection<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> item<span class="token punctuation">[</span>'name<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="编写Settings-py"><a href="#编写Settings-py" class="headerlink" title="编写Settings.py"></a>编写Settings.py</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#数字是优先级</span>
+ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">{</span>
+   <span class="token string">'game.pipelines.gmysql'</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+   <span class="token string">'game.pipelines.GamePipeline'</span><span class="token punctuation">:</span> <span class="token number">500</span><span class="token punctuation">,</span>
+   <span class="token string">'game.pipelines.gjson'</span><span class="token punctuation">:</span> <span class="token number">400</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><blockquote>
+<p>注意<br>item[‘name’] = one.xpath(‘a/img/@alt’).extract()[0]<br>extract转化为列表 [0]获得第一个元素str</p>
+</blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -650,9 +668,9 @@ html <span class="token operator">=</span> request<span class="token punctuation
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《requests库》
+                    《Scrapy应用(一)》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/11/request/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/14/scrapy-1/" property="cc:attributionName"
                rel="cc:attributionURL">
                 刘坤胤
             </a> 采用
@@ -693,7 +711,7 @@ html <span class="token operator">=</span> request<span class="token punctuation
         repo: 'blogtalk',
         owner: 'liukunyin',
         admin: "liukunyin",
-        id: '2019-10-11T19-01-58',
+        id: '2019-10-14T19-10-42',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -974,28 +992,82 @@ html <span class="token operator">=</span> request<span class="token punctuation
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/11/bs4/">
+                <a href="/2019/10/14/scrapy-1/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Beautiful Soup 爬虫">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Scrapy应用(一)">
                         
-                        <span class="card-title">Beautiful Soup 爬虫</span>
+                        <span class="card-title">Scrapy应用(一)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            bs4库
+                            4399&数据存储
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-11
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                    python
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/爬虫/" target="_blank">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Scrapy/" target="_blank">
+                        <span class="chip bg-color">Scrapy</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/10/13/scrapy/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="scrapy框架">
+                        
+                        <span class="card-title">scrapy框架</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            战术总结
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1015,52 +1087,8 @@ html <span class="token operator">=</span> request<span class="token punctuation
                         <span class="chip bg-color">爬虫</span>
                     </a>
                     
-                    <a href="/tags/bs4库/" target="_blank">
-                        <span class="chip bg-color">bs4库</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/10/04/everyday-japanese/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="日语栏目">
-                        
-                        <span class="card-title">日语栏目</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            日语名台词收集
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            刘坤胤
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/学习记录/" target="_blank">
-                        <span class="chip bg-color">学习记录</span>
+                    <a href="/tags/Scrapy/" target="_blank">
+                        <span class="chip bg-color">Scrapy</span>
                     </a>
                     
                 </div>
