@@ -625,7 +625,7 @@ fun<span class="token punctuation">.</span>get_img_tieba<span class="token punct
 <hr>
 <p>提取网页中需要的数据，在Scrapy中是使用一种基于XPath和CSS的表达式机制：Scrapy Selectors<br>Selector是一个选择器，它有四个基本的方法：<br>  xpath():传入xpath表达式，返回该表达式所对应的所有节点的selector list列表。<br>  css():传入Css表达式，返回该表达式所对应的所有节点的selector list列表。<br>  extract():序列化该节点为unicode字符串并返回list。<br>  re():根据传入的正则表达式对数据进行提取，返回unicode字符串list列表。</p>
 <p>①在shell里实验<br>scrapy shell “url”之后使用上述方法筛选需要的信息(要用双引号)<br>response.xpath(‘//标签名’)  选出所有标签的内容<br>response.xpath(‘//标签名’).extract() ……并字符串化</p>
-<p>response.xpath(‘//ul/li/a/@href’)<br>response.xpath(‘//ul[@class=”…”]/li’)根据类名筛</p>
+<p>response.xpath(‘//ul/li/a/@href’)<br>response.xpath(‘//ul[@class=”…”]/li’)根据类名筛<br>response.xpath(‘//标签名[position()&lt;3]’)选出前两个</p>
 <p>②实验好了修改爬虫代码</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#dmoz_spider</span>
 <span class="token keyword">import</span> scrapy
@@ -1272,7 +1272,7 @@ fun<span class="token punctuation">.</span>get_img_tieba<span class="token punct
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.6k</span>&nbsp;字
+                class="white-color">12.3k</span>&nbsp;字
             
             
             
