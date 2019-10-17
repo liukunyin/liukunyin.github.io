@@ -4,13 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="scrapy框架, 迦勒底">
-    <meta name="description" content="英文文档中文文档
-Scrapy框架的具体使用：步骤一：创建一个工程和spider模板#在一个目录里执行代码，创建工程名为zimuku
-scrapy startproject zimuku
-
-
-目录结构├── zimuku          ">
+    <meta name="keywords" content="Scrapy应用(三), 迦勒底">
+    <meta name="description" content="爬虫攻防Scrapy框架在突破反爬虫技术上有十分强大的框架给我们用，很多时候我们只需要自己改一些设定就能和网站管理员玩“猫捉老鼠”的游戏了但是想要更多的自定义，需要我们自己写“MIddleWares：中间件”更多的可以参考一下文档：下载器中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +13,7 @@ scrapy startproject zimuku
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>scrapy框架 | 迦勒底</title>
+    <title>Scrapy应用(三) | 迦勒底</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -326,13 +321,13 @@ scrapy startproject zimuku
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        scrapy框架
+                        Scrapy应用(三)
                     </div>
                 </div>
             </div>
@@ -471,21 +466,21 @@ scrapy startproject zimuku
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-13
+                    2019-10-17
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        588
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        4 分
                     </div>
                     
                 
@@ -501,77 +496,100 @@ scrapy startproject zimuku
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="https://docs.scrapy.org/en/latest/" target="_blank" rel="noopener">英文文档</a><br><a href="https://scrapy-chs.readthedocs.io/zh_CN/0.24/index.html" target="_blank" rel="noopener">中文文档</a></p>
-<h2 id="Scrapy框架的具体使用："><a href="#Scrapy框架的具体使用：" class="headerlink" title="Scrapy框架的具体使用："></a>Scrapy框架的具体使用：</h2><h3 id="步骤一：创建一个工程和spider模板"><a href="#步骤一：创建一个工程和spider模板" class="headerlink" title="步骤一：创建一个工程和spider模板"></a>步骤一：创建一个工程和spider模板</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#在一个目录里执行代码，创建工程名为zimuku</span>
-scrapy startproject zimuku
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <h1 id="爬虫攻防"><a href="#爬虫攻防" class="headerlink" title="爬虫攻防"></a>爬虫攻防</h1><p>Scrapy框架在突破反爬虫技术上有十分强大的框架给我们用，<br>很多时候我们只需要自己改一些设定就能和网站管理员玩“猫捉老鼠”的游戏了<br>但是想要更多的自定义，需要我们自己写“MIddleWares：中间件”<br>更多的可以参考一下文档：<br><a href="https://scrapy-chs.readthedocs.io/zh_CN/0.24/topics/downloader-middleware.html" target="_blank" rel="noopener">下载器中间件</a></p>
+<h4 id="1-突破时间间隔封锁："><a href="#1-突破时间间隔封锁：" class="headerlink" title="1.突破时间间隔封锁："></a>1.突破时间间隔封锁：</h4><p>很多网站对于人和爬虫的判断，基于访问的速度：爬虫可以做到1s内十次上百次的访问，人类却明显做不到。<br>scrapy框架只要在settings.py里设置就能改变访问的速度：</p>
+<pre class="line-numbers language-python"><code class="language-python">DOWNLOAD_DELAY <span class="token operator">=</span> <span class="token number">1</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里代表：每1s访问一次。<br>如果不考虑网站管理员的反爬虫，这个值当然越小越快，<br>但是总是会有一个 阈值 小于这个值，你的spider就要被封锁咯~<br>所以具体还是得自己实际测试才能知道。</p>
+<h4 id="2-突破Cookie封锁："><a href="#2-突破Cookie封锁：" class="headerlink" title="2.突破Cookie封锁："></a>2.突破Cookie封锁：</h4><p>虽然我们没遇到过，但是众所周知，cookies是来确定用户身份的一长串数据，如果有的网站对cookie进行简单的检验，我们简单的设置一下也能解决：</p>
+<pre class="line-numbers language-python"><code class="language-python">COOKIES_ENABLED <span class="token operator">=</span> <span class="token boolean">False</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里我们就禁用了cookie</p>
+<h4 id="3-突破user-agent封锁："><a href="#3-突破user-agent封锁：" class="headerlink" title="3.突破user-agent封锁："></a>3.突破user-agent封锁：</h4><p>这种方式，本质上就是对headers进行判断，在前面的bs4爬虫攻防里我已经具体介绍过了，我就不多说了。<br>从这里开始就需要我们自己写中间件，才能够完成任务了。<br>首先，在与settings.py的同级目录建立文件夹：</p>
 <blockquote>
-<p>目录结构<br>├── zimuku                  #外层目录<br>│   ├── <strong>init</strong>.py         #初始化脚本<br>│   ├── <strong>pycache</strong>         #Python缓存文件。暂时无视<br>│   ├── items.py            #Items代码模板，继承类自scrapy.Item<br>│   ├── middlewares.py      #Middlewares代码模板(继承类)<br>│   ├── pipelines.py        #Pipelines代码模板(继承类)<br>│   ├── settings.py         #Scrapy爬虫的配置文件<br>│   └── spiders             #Spiders代码模板目录 我们写爬虫的地方<br>│       ├── <strong>init</strong>.py<br>│       └── <strong>pycache</strong><br>└── scrapy.cfg              #部署爬虫的配置文件</p>
+<p>middlewares</p>
 </blockquote>
-<p>进入到工程文件<br>cd zimuku<br>用命令行创建第一个Spider：<br>scrapy genspider demo <a href="http://zimuku.net" target="_blank" rel="noopener">http://zimuku.net</a></p>
+<p>接着，在文件夹下创建：</p>
+<pre><code>__init__.py</code></pre><p>这样可以让Python认为这个文件是一个可以导入的包<br>然后，我们开始写中间件：</p>
 <blockquote>
-<p>战术总结<br>1.scrapy startproject zimuku<br>2.scrapy genspider demo <a href="http://zimuku.net" target="_blank" rel="noopener">http://zimuku.net</a></p>
+<p>customUserAgent.py</p>
 </blockquote>
-<h3 id="步骤二：编写Spider"><a href="#步骤二：编写Spider" class="headerlink" title="步骤二：编写Spider"></a>步骤二：编写Spider</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> scrapy
+<pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
+自定义scrapy框架的
+user-agent头
+从一个被良好维护的user-agent列表里
+随机筛选合适的user-agent
+防止封锁
+'''</span>
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>contrib<span class="token punctuation">.</span>downloadermiddleware<span class="token punctuation">.</span>useragent <span class="token keyword">import</span> UserAgentMiddleware
 
-<span class="token comment" spellcheck="true"># 将我们需要爬的项目引入进来</span>
-<span class="token keyword">from</span> zimuku<span class="token punctuation">.</span>items <span class="token keyword">import</span> ZimukuItem
+<span class="token keyword">import</span> random
 
-<span class="token keyword">class</span> <span class="token class-name">DemoSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    <span class="token comment" spellcheck="true">#该爬虫的名字</span>
-    name <span class="token operator">=</span> <span class="token string">"demo"</span>
 
-    <span class="token comment" spellcheck="true">#规定爬虫爬取网页的域名</span>
-    allowed_domains <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"zimuku.net"</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#一个不容易被封锁的user-agent列表</span>
+agents <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0;'</span><span class="token punctuation">,</span>
+              <span class="token string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv,2.0.1) Gecko/20100101 Firefox/4.0.1'</span><span class="token punctuation">,</span>
+              <span class="token string">'Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) Presto/2.8.131 Version/11.11'</span><span class="token punctuation">,</span>
+              <span class="token string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11'</span><span class="token punctuation">,</span>
+              <span class="token string">'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; 360SE)'</span><span class="token punctuation">]</span>
 
-    <span class="token comment" spellcheck="true">#开始爬取的url链接</span>
-    start_urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'http://zimuku.net/'</span><span class="token punctuation">]</span>
-
-    <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">class</span> <span class="token class-name">RandomUserAgent</span><span class="token punctuation">(</span>UserAgentMiddleware<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">process_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>request<span class="token punctuation">,</span>spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token triple-quoted-string string">'''
-        parse()函数接收Response参数，就是网页爬取后返回的数据
-        用于处理响应，他负责解析爬取的内容
-        生成解析结果的字典，并返回新的需要爬取的请求
+        定义下载中间件，
+        必须要写这个函数，
+        这是scrapy数据流转的一个环节
+        具体可以看文档:
+        http://scrapy-chs.readthedocs.io/zh_CN/0.24/topics/downloader-middleware.html
         '''</span>
+        ua <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>agents<span class="token punctuation">)</span>
+        request<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span><span class="token string">'User-agent'</span><span class="token punctuation">,</span>ua<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这样就能每次发起访问请求的时候，随机选择一个user-agent了。</p>
+<p>当然，我们需要在settings.py里激活我们的下载中间件：<br><strong>* 注意，需要scrapy自身的user-agent中间件关闭！ *</strong></p>
+<blockquote>
+<p>DOWNLOADER_MIDDLEWARES = {<br>    ‘xxx.middlewares.coustomUserAgent.RandomUserAgent’: 20,<br>    ‘scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware’:None，<br>}</p>
+</blockquote>
+<h4 id="4-突破IP封锁："><a href="#4-突破IP封锁：" class="headerlink" title="4.突破IP封锁："></a>4.突破IP封锁：</h4><p>终于说道关键的部分了，不说这里，上一张我们弄出来的这么多代理都白费啦！<br>原理我也不多说了，自然是一个ip的频繁访问，导致被封ip了。<br>解决办法也很简单，写一个代理中间件，让他每次访问的时候都换一个ip就成：</p>
+<p>首先，我们要建立一个单独文件来存储可以用的代理：proxy.py</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
+通过爬取可用的免费代理，
+进行测试可用度之后
+筛选获得的代理
+将静态的资源文件写在功能文件之外
+方便及时更新维护。
+'''</span>
+proxies <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'89.36.215.72:1189'</span><span class="token punctuation">,</span>
+    <span class="token string">'94.177.203.123:1189'</span><span class="token punctuation">,</span>
+    <span class="token string">'110.73.11.227:8123'</span><span class="token punctuation">,</span>
+    <span class="token string">'180.183.176.189:8080'</span><span class="token punctuation">,</span>
+    <span class="token string">'109.62.247.81:8080'</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里单独写一个文件，是为了方便维护，毕竟免费的代理动不动就不能用啦！user-agent就不会，我们可以硬编码在功能里</p>
+<p>接着，创建我们的中间件:coustomProxy.py</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
+从本地文件proxy.py中
+读取可以用的代理列表
+并从中随机选择一个代理
+供给spider使用
+'''</span>
+<span class="token keyword">from</span> xiubai<span class="token punctuation">.</span>middlewares<span class="token punctuation">.</span>proxy <span class="token keyword">import</span> proxies
+<span class="token keyword">import</span> random
 
-        <span class="token comment" spellcheck="true">#由于是demo 我们不做完全的功能，</span>
-        <span class="token comment" spellcheck="true">#只要求爬取出第一个字幕的名字</span>
-        <span class="token comment" spellcheck="true">#xpath规则可以通过查看网页源文件得出</span>
-        name <span class="token operator">=</span> response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//b/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token keyword">class</span> <span class="token class-name">RandomProxy</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">process_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>request<span class="token punctuation">,</span>spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 从文件中随机选择一个代理</span>
+        proxy <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>proxies<span class="token punctuation">)</span>
 
-        <span class="token comment" spellcheck="true">#建立一个items字典，用于保存我们爬到的结果，并返回给pipline处理</span>
-        items <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-        items<span class="token punctuation">[</span><span class="token string">'第一个'</span><span class="token punctuation">]</span><span class="token operator">=</span> name
-
-        <span class="token keyword">return</span> items
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="步骤三：-编写Item、Pipeline"><a href="#步骤三：-编写Item、Pipeline" class="headerlink" title="步骤三： 编写Item、Pipeline"></a>步骤三： 编写Item、Pipeline</h3><p>itmes.py定义这个爬虫框架需要爬哪些内容：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> scrapy
-<span class="token keyword">class</span> <span class="token class-name">ZimukuItem</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># define the fields for your item here like:</span>
-    <span class="token comment" spellcheck="true"># name = scrapy.Field()</span>
-    subname <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#字幕的名字</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>piplines.py来处理spider爬到的内容：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">ZimukuPipeline</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-        <span class="token comment" spellcheck="true"># 只要求简单的话，</span>
-        <span class="token comment" spellcheck="true"># 我们把爬到的结果打印一下吧</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-
-        <span class="token keyword">return</span> item
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="步骤四：-优化配置Settings-py"><a href="#步骤四：-优化配置Settings-py" class="headerlink" title="步骤四： 优化配置Settings.py"></a>步骤四： 优化配置Settings.py</h3><pre class="line-numbers language-python"><code class="language-python">BOT_NAME <span class="token operator">=</span> <span class="token string">'zimuku'</span>
-
-SPIDER_MODULES <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'zimuku.spiders'</span><span class="token punctuation">]</span>
-NEWSPIDER_MODULE <span class="token operator">=</span> <span class="token string">'zimuku.spiders'</span>
-ROBOTSTXT_OBEY <span class="token operator">=</span> <span class="token boolean">True</span>
-<span class="token comment" spellcheck="true">#只增加了这一行，通过配置告诉Scrapy明白是谁来处理结果</span>
-ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'zimuku.pipelines.ZimukuPipeline'</span><span class="token punctuation">:</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="获得结果"><a href="#获得结果" class="headerlink" title="获得结果"></a>获得结果</h3><p>scrapy crawl demo</p>
+        request<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'proxy'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'http://{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>proxy<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>最后，设置settings.py,注意，这里和上面不一样，不能关闭scrapy本身的代理中间件，只需要让自己写的在官方之前执行就成。</p>
+<blockquote>
+<p>DOWNLOADER_MIDDLEWARES = {<br>    ‘xxx.middlewares.coustomProxy.RandomProxy’:10,<br>    ‘xxx.middlewares.coustomUserAgent.RandomUserAgent’: 20,<br>    ‘scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware’:None,<br>    ‘scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware’:100,<br>}</p>
+</blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -624,9 +642,9 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《scrapy框架》
+                    《Scrapy应用(三)》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/13/scrapy/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/17/scrapy-3/" property="cc:attributionName"
                rel="cc:attributionURL">
                 刘坤胤
             </a> 采用
@@ -667,7 +685,7 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
         repo: 'blogtalk',
         owner: 'liukunyin',
         admin: "liukunyin",
-        id: '2019-10-13T21-11-38',
+        id: '2019-10-17T10-38-12',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -948,28 +966,29 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/14/scrapy-1/">
+                <a href="/2019/10/17/scrapy-3/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Scrapy应用(一)">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Scrapy应用(三)">
                         
-                        <span class="card-title">Scrapy应用(一)</span>
+                        <span class="card-title">Scrapy应用(三)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            4399&数据存储
+                            爬虫攻防
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -982,6 +1001,7 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1004,23 +1024,23 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/13/bs4-tieba2/">
+                <a href="/2019/10/17/scrapy-2/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="bs4库应用(三)">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Scrapy应用(二)">
                         
-                        <span class="card-title">bs4库应用(三)</span>
+                        <span class="card-title">Scrapy应用(二)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            爬取晒卡集中贴的海豹图
+                            代理ip并筛选
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-13
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-17
                             </span>
                         <span class="publish-author">
                             
@@ -1041,8 +1061,8 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
                         <span class="chip bg-color">爬虫</span>
                     </a>
                     
-                    <a href="/tags/bs4库/" target="_blank">
-                        <span class="chip bg-color">bs4库</span>
+                    <a href="/tags/Scrapy/" target="_blank">
+                        <span class="chip bg-color">Scrapy</span>
                     </a>
                     
                 </div>
