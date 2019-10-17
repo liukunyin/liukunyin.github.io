@@ -4,11 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="记录, 迦勒底">
-    <meta name="description" content="
+    <meta name="keywords" content="Scrapy应用(二), 迦勒底">
+    <meta name="description" content="仍然是那几个步骤#items
+import scrapy
 
-石头：240 呼符：02019年9月2019.9.29搭建自己的博客吧附上连接 参考 原作者
-10月2019.10.1博客重建成功但我还是不知道写啥石头：159呼符：0消耗：5呼符  写文章时不要开两个git界面，一个运行着服务，一个提">
+class IpItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = s">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>记录 | 迦勒底</title>
+    <title>Scrapy应用(二) | 迦勒底</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -324,13 +326,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        记录
+                        Scrapy应用(二)
                     </div>
                 </div>
             </div>
@@ -340,108 +342,27 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 20px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/爬虫/" target="_blank">
+                                <span class="chip bg-color">爬虫</span>
+                            </a>
+                        
+                            <a href="/tags/Scrapy/" target="_blank">
+                                <span class="chip bg-color">Scrapy</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -449,8 +370,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/随笔/" class="post-category" target="_blank">
-                                随笔
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                python
                             </a>
                         
                     </div>
@@ -461,14 +382,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-01
+                    2019-10-17
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        651
+                        514
                     </div>
                     
 
@@ -491,23 +412,113 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=30284543&amp;auto=1&amp;height=66"></iframe><br></div>
+                <h1 id="仍然是那几个步骤"><a href="#仍然是那几个步骤" class="headerlink" title="仍然是那几个步骤"></a>仍然是那几个步骤</h1><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#items</span>
+<span class="token keyword">import</span> scrapy
 
-<h1 id="石头：240-呼符：0"><a href="#石头：240-呼符：0" class="headerlink" title="石头：240 呼符：0"></a>石头：240 呼符：0</h1><h2 id="2019年"><a href="#2019年" class="headerlink" title="2019年"></a>2019年</h2><h3 id="9月"><a href="#9月" class="headerlink" title="9月"></a>9月</h3><h4 id="2019-9-29"><a href="#2019-9-29" class="headerlink" title="2019.9.29"></a>2019.9.29</h4><p><strong><em>搭建自己的博客吧</em></strong><br>附上连接 <a href="https://zhuanlan.zhihu.com/p/35668237" target="_blank" rel="noopener">参考</a> <a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md" target="_blank" rel="noopener">原作者</a></p>
-<h3 id="10月"><a href="#10月" class="headerlink" title="10月"></a>10月</h3><h4 id="2019-10-1"><a href="#2019-10-1" class="headerlink" title="2019.10.1"></a>2019.10.1</h4><p><strong><em>博客重建成功但我还是不知道写啥</em></strong><br>石头：159<br>呼符：0<br>消耗：<del>5呼符</del><br>  <del>写文章时不要开两个git界面，一个运行着服务，一个提交更改。会有蜜汁错误昨天把我搞炸了费半天劲重建。文章也不要乱删直接改配置内容原因同上。分类标签不要乱写不好去除</del><br>  图片路径要谨慎“medias/banner/0.jpg”这么写少了个/，就在该文件里找图了而不是在根的medias找。幸好这时候可以直接改配置，正确写法应是“/medias/banner/0.jpg” 我枯了</p>
-<h4 id="2019-10-2"><a href="#2019-10-2" class="headerlink" title="2019.10.2"></a>2019.10.2</h4><p>石头：160<br>呼符：0<br>为博客更新了图片加了一首音乐<br>在<a href="https://wallhaven.cc/" target="_blank" rel="noopener">这里</a>找了半天图。。。</p>
-<h4 id="2019-10-3"><a href="#2019-10-3" class="headerlink" title="2019.10.3"></a>2019.10.3</h4><p>石头：160<br>呼符：0<br>把主题颜色换成黑的了，加了emoji功能<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span>。留言功能（没人留言吧），照教程得到各种key<a href="https://valine.js.org/" target="_blank" rel="noopener">valine</a>,<a href="https://www.jianshu.com/p/4242bb065550" target="_blank" rel="noopener">gittalk</a>再改改配置文件就好。duang的一下加了很多<a href="https://blog.csdn.net/qq_36759224/article/details/85420403" target="_blank" rel="noopener">特技</a>。一行代码看板娘带回家<a href="https://github.com/stevenjoezhang/live2d-widget" target="_blank" rel="noopener">链接</a>对话感觉都无懈可击不用改了作者太强了。感觉最近一直在搬砖。</p>
-<h4 id="2019-10-4"><a href="#2019-10-4" class="headerlink" title="2019.10.4"></a>2019.10.4</h4><p>石头：172<br>呼符：0<br>分类名称搞错只需使用hexo clean命令 再重新生成即可已经没什么好怕的了（可以随便删文了）<br><img src="1.jpg" alt="">偶尔放放有意思的（沙雕）图</p>
-<h4 id="2019-10-5"><a href="#2019-10-5" class="headerlink" title="2019.10.5"></a>2019.10.5</h4><p>石头：172<br>呼符：0<br>消耗：<del>1呼符</del><br>竟无语凝噎<del>python栏目不知道写啥了</del></p>
-<h4 id="2019-10-6"><a href="#2019-10-6" class="headerlink" title="2019.10.6"></a>2019.10.6</h4><p>石头：172<br>呼符：0</p>
-<h4 id="2019-10-7"><a href="#2019-10-7" class="headerlink" title="2019.10.7"></a>2019.10.7</h4><p>石头：173<br>呼符：0<br>消耗：<del>10呼符</del><br>总是觉得止步不前</p>
-<h4 id="2019-10-8"><a href="#2019-10-8" class="headerlink" title="2019.10.8"></a>2019.10.8</h4><p>石头：188<br>呼符：3<br>消耗：<del>1呼符</del></p>
-<h4 id="2019-10-9"><a href="#2019-10-9" class="headerlink" title="2019.10.9"></a>2019.10.9</h4><p>石头：190<br>呼符：0<br>消耗：<del>5呼符</del><br>开学了随缘更新</p>
-<h4 id="2019-10-10"><a href="#2019-10-10" class="headerlink" title="2019.10.10"></a>2019.10.10</h4><p>石头：205<br>呼符：0<br>消耗：<del>2呼符</del></p>
-<h4 id="2019-10-11"><a href="#2019-10-11" class="headerlink" title="2019.10.11"></a>2019.10.11</h4><p>石头：205<br>呼符：0<br>一个大胆的想法从产生到怀疑到放弃只要半天特别好玩儿，咸鱼的生活就是这么朴实无华且枯燥.<br>使用hexo clean命令后文章的图片都没了！<br>git init<br>git add .<br>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:liukunyin/blog_beifen.git<br>git push -u origin master</p>
-<h4 id="2019-10-12"><a href="#2019-10-12" class="headerlink" title="2019.10.12"></a>2019.10.12</h4><p>石头：205<br>呼符：0</p>
-<h4 id="2019-10-13"><a href="#2019-10-13" class="headerlink" title="2019.10.13"></a>2019.10.13</h4><p>石头：207<br>呼符：0</p>
-<h4 id="2019-10-14"><a href="#2019-10-14" class="headerlink" title="2019.10.14"></a>2019.10.14</h4><p>攒石信息统一放在第一行吧</p>
+<span class="token keyword">class</span> <span class="token class-name">IpItem</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># define the fields for your item here like:</span>
+    <span class="token comment" spellcheck="true"># name = scrapy.Field()</span>
+    ip <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python">spider<span class="token operator">/</span>demo<span class="token punctuation">.</span>py
+<span class="token keyword">import</span> scrapy
+<span class="token keyword">from</span> ip<span class="token punctuation">.</span>items <span class="token keyword">import</span> IpItem
+
+<span class="token keyword">class</span> <span class="token class-name">DemoSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">"demo"</span>
+    allowed_domains <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"cn-proxy.com"</span><span class="token punctuation">]</span>
+    start_urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'https://cn-proxy.com/'</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
+        IP
+        '''</span>
+        items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        IP <span class="token operator">=</span> response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//div[@class="table-container"]/table/tbody/tr'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> IP<span class="token punctuation">:</span>
+          item <span class="token operator">=</span> IpItem<span class="token punctuation">(</span><span class="token punctuation">)</span>
+          ip <span class="token operator">=</span> i<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'td[position()=1]/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+          duanko <span class="token operator">=</span> i<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'td[position()=2]/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+          item<span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span> <span class="token operator">=</span> ip<span class="token operator">+</span><span class="token string">':'</span><span class="token operator">+</span>duanko
+          items<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> items
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#pipelines.py</span>
+<span class="token keyword">class</span> <span class="token class-name">IpPipeline</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      fiename <span class="token operator">=</span> <span class="token string">'F:/爬虫/ip/ip.txt'</span>
+      <span class="token comment" spellcheck="true"># 从内存以追加的方式打开文件，并写入对应的数据</span>
+      <span class="token keyword">with</span> open<span class="token punctuation">(</span>fiename<span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+          f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+      <span class="token keyword">return</span> item
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#settings.py</span>
+ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">{</span>
+   <span class="token string">'ip.pipelines.IpPipeline'</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="筛选无用代理"><a href="#筛选无用代理" class="headerlink" title="筛选无用代理"></a>筛选无用代理</h1><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token comment" spellcheck="true"># 引入这个库来获得map函数的并发版本</span>
+<span class="token keyword">from</span> multiprocessing<span class="token punctuation">.</span>dummy <span class="token keyword">import</span> Pool <span class="token keyword">as</span> ThreadPool
+<span class="token comment" spellcheck="true"># 定义全局变量</span>
+dir_path <span class="token operator">=</span> <span class="token string">'F:/爬虫/ip/'</span>
+alive_ip <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 使得map并发！实例化pool对象</span>
+pool <span class="token operator">=</span> ThreadPool<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 设置并发数量！</span>
+pool <span class="token operator">=</span> ThreadPool<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">test_alive</span><span class="token punctuation">(</span>proxy<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    一个简单的函数，
+    来判断通过代理访问百度
+    筛选通过的代理保存到alive_ip中
+    '''</span>
+    <span class="token keyword">global</span> alive_ip
+    <span class="token comment" spellcheck="true">#设置代理头</span>
+    proxies <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'http'</span><span class="token punctuation">:</span> proxy<span class="token punctuation">}</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'正在测试：{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>proxies<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">,</span> proxies<span class="token operator">=</span>proxies<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> r<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'该代理：{}成功存活'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>proxy<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            alive_ip<span class="token punctuation">.</span>append<span class="token punctuation">(</span>proxy<span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'该代理{}失效！'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>proxies<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">Out_file</span><span class="token punctuation">(</span>alive_ip<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    将符合要求的代理写入文件
+    '''</span>
+    <span class="token keyword">global</span> dir_path
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span>dir_path <span class="token operator">+</span> <span class="token string">'alive_ip.txt'</span><span class="token punctuation">,</span> <span class="token string">'a+'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> ip <span class="token keyword">in</span> alive_ip<span class="token punctuation">:</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>ip <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'所有存活ip都已经写入文件！'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>filename<span class="token operator">=</span><span class="token string">'blank.txt'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 循环处理每行文件</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span>dir_path <span class="token operator">+</span> filename<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        lines <span class="token operator">=</span> f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 我们去掉lines每一项后面的\n\r之类的空格</span>
+        <span class="token comment" spellcheck="true"># 生成一个新的列表！</span>
+        proxys <span class="token operator">=</span> list<span class="token punctuation">(</span>map<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>y <span class="token keyword">for</span> y <span class="token keyword">in</span> lines<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true">#一行代码解决多线程！</span>
+        pool<span class="token punctuation">.</span>map<span class="token punctuation">(</span>test_alive<span class="token punctuation">,</span>proxys<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 将存活的ip写入文件</span>
+    Out_file<span class="token punctuation">(</span>alive_ip<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#调用函数！</span>
+test<span class="token punctuation">(</span><span class="token string">'ip.txt'</span><span class="token punctuation">)</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>DOWNLOAD_DELAY = 1//settings.py设置下载延迟</p>
+</blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -560,9 +571,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《记录》
+                    《Scrapy应用(二)》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/01/article1/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/17/scrapy-2/" property="cc:attributionName"
                rel="cc:attributionURL">
                 刘坤胤
             </a> 采用
@@ -603,7 +614,7 @@
         repo: 'blogtalk',
         owner: 'liukunyin',
         admin: "liukunyin",
-        id: '2019-10-01T15-44-23',
+        id: '2019-10-17T08-31-12',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -884,29 +895,82 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/02/py/">
+                <a href="/2019/10/17/scrapy-2/">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Scrapy应用(二)">
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="python">
-                        
-                        <span class="card-title">python</span>
+                        <span class="card-title">Scrapy应用(二)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录学习python的点点滴滴
+                            代理ip并筛选
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-02
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                    python
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/爬虫/" target="_blank">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Scrapy/" target="_blank">
+                        <span class="chip bg-color">Scrapy</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/10/14/scrapy-1/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Scrapy应用(一)">
+                        
+                        <span class="card-title">Scrapy应用(一)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            4399&数据存储
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -922,52 +986,15 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/学习记录/" target="_blank">
-                        <span class="chip bg-color">学习记录</span>
+                    <a href="/tags/爬虫/" target="_blank">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Scrapy/" target="_blank">
+                        <span class="chip bg-color">Scrapy</span>
                     </a>
                     
                 </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/10/01/article1/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/banner/0.jpg" class="responsive-img" alt="记录">
-                        
-                        <span class="card-title">记录</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            战术总结
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-01
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/随笔/" class="post-category" target="_blank">
-                                    随笔
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
                 
             </div>
         </div>
@@ -978,99 +1005,6 @@
 
 
 
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fa fa-list"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).slideUp(500);
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).slideDown(500);
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
     
 
 
