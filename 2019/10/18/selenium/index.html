@@ -5,11 +5,9 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Selenium&amp;PhantomJS, 迦勒底">
-    <meta name="description" content="#明天更吧~
+    <meta name="description" content="pip install selenium==2.48.0 新版本不支持phantomjs下载phantomjs
 
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) {">
+implicitly_wait（）：浏览器解释JS脚本是需要时间的，但实际上这个时间并不好确定，如果我们手动设定时间间隔的话，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -341,99 +339,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 20px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -477,14 +386,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        56
+                        1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        4 分
                     </div>
                     
                 
@@ -500,7 +409,168 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#明天更吧~</p>
+                <p>pip install selenium==2.48.0 新版本不支持phantomjs<br><a href="https://phantomjs.org/download.html" target="_blank" rel="noopener">下载phantomjs</a></p>
+<blockquote>
+<p>implicitly_wait（）：<br>浏览器解释JS脚本是需要时间的，但实际上这个时间并不好确定，<br>如果我们手动设定时间间隔的话，设置多了浪费时间，设置少了又会丢失数据<br>implictly_wait函数则完美解决了这个问题，给他一个时间参数，他会只能等待，当js完全解释完毕就会自动执行下一步。</p>
+</blockquote>
+<blockquote>
+<p>Selenium 本事给出了18个函数来定位有效数据的位置：<br>找到第一个匹配的元素<br>find_element_by_id<br>find_element_by_name<br>find_element_by_xpath<br>find_element_by_link_text<br>find_element_by_partial_link_text<br>find_element_by_tag_name<br>find_element_by_class_name<br>find_element_by_css_selector<br>一次查找多个元素 (这些方法会返回一个list列表):<br>find_elements_by_name<br>find_elements_by_xpath<br>find_elements_by_link_text<br>find_elements_by_partial_link_text<br>find_elements_by_tag_name<br>find_elements_by_class_name<br>find_elements_by_css_selector</p>
+</blockquote>
+<blockquote>
+<p>首先调用find_element_by_id（）方法找到了text栏的位置，<br>然后通过send_keys（）方法来输入关键字<br>接着还是通过find_element_by_id（）方法找到提按钮，<br>最后我们通过.submint()方法来模拟点击，发送搜索请求</p>
+</blockquote>
+<blockquote>
+<p>通过browser.find_elements_by_class_name（）方法定位到搜索结果，<br>返回一个element类型的列表，<br>再通过element.text 和 element.get_attribute()方法来获取我们需要的数据。<br>最后我们遍历一边results列表就能获得我们想要的答案了。</p>
+</blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
+使用Selenium模拟浏览器
+抓取百度查询结果
+'''</span>
+
+<span class="token comment" spellcheck="true"># 导入selenium模块中的web引擎</span>
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+
+
+<span class="token comment" spellcheck="true"># 建立浏览器对象 ，通过Phantomjs</span>
+browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>PhantomJS<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 设置访问的url</span>
+url <span class="token operator">=</span> <span class="token string">'https://www.baidu.com'</span>
+
+<span class="token comment" spellcheck="true"># 访问url</span>
+browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 等待一定时间，让js脚本加载完毕</span>
+browser<span class="token punctuation">.</span>implicitly_wait<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 找到搜索框</span>
+text <span class="token operator">=</span> browser<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'kw'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 清空搜索框的文字</span>
+text<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 填写搜索框的文字</span>
+text<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'命运冠位指定'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 找到submit按钮</span>
+button <span class="token operator">=</span> browser<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'su'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 点击按钮 提交搜索请求</span>
+button<span class="token punctuation">.</span>submit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true"># 查看当前浏览器标题</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>browser<span class="token punctuation">.</span>title<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 以截图的方式查看浏览器的页面</span>
+browser<span class="token punctuation">.</span>save_screenshot<span class="token punctuation">(</span><span class="token string">'text.png'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 找到结果 结果保存为列表变量</span>
+results <span class="token operator">=</span> browser<span class="token punctuation">.</span>find_elements_by_class_name<span class="token punctuation">(</span><span class="token string">'t'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 循环遍历找出每个结果的标题和url</span>
+<span class="token keyword">for</span> result <span class="token keyword">in</span> results<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'标题：{} 超链接：{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>result<span class="token punctuation">.</span>text<span class="token punctuation">,</span>
+                                result<span class="token punctuation">.</span>find_element_by_tag_name<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_attribute<span class="token punctuation">(</span><span class="token string">'href'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h1 id="实践：获取快代理"><a href="#实践：获取快代理" class="headerlink" title="实践：获取快代理"></a>实践：获取快代理</h1><blockquote>
+<p>get_urls()<br>这个函数功能是返回一个需要爬取代理页面的url链接的列表<br>get_proxy_list()<br>这个函数通过Selenium和PhantomJS模拟一个浏览器环境，<br>首先 从get_urls函数返回的列表中拿出一个链接，打开<br>接着 在浏览器里通过find_elements_by_xpath()方法来找到每一条我们需要的数据，并保存在item里。<br>最后 将item返回给saveFile()函数处理。<br>saveFile()<br>这个函数没什么好说的，<br>就是将item理的数据写入到本地。<br>保存在proxy.txt文本中。</p>
+</blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
+selenium模拟浏览器爬虫
+
+爬取快代理：http://www.kuaidaili.com/
+'''</span>
+
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+
+
+<span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    我们模拟Scrapy框架
+    写一个item类出来，
+    用来表示每一个爬到的代理
+    '''</span>
+
+    ip <span class="token operator">=</span> None  <span class="token comment" spellcheck="true"># ip地址</span>
+    port <span class="token operator">=</span> None  <span class="token comment" spellcheck="true"># 端口</span>
+    anonymous <span class="token operator">=</span> None  <span class="token comment" spellcheck="true"># 是否匿名</span>
+    type <span class="token operator">=</span> None  <span class="token comment" spellcheck="true"># http or https</span>
+    local <span class="token operator">=</span> None  <span class="token comment" spellcheck="true"># 物理地址</span>
+    speed <span class="token operator">=</span> None  <span class="token comment" spellcheck="true"># 速度</span>
+
+<span class="token keyword">class</span> <span class="token class-name">GetProxy</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    获取代理的类
+    '''</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
+        初始化整个类
+        '''</span>
+        self<span class="token punctuation">.</span>starturl <span class="token operator">=</span> <span class="token string">'http://www.kuaidaili.com/free/inha/'</span>
+        self<span class="token punctuation">.</span>urls <span class="token operator">=</span> self<span class="token punctuation">.</span>get_urls<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>proxylist <span class="token operator">=</span> self<span class="token punctuation">.</span>get_proxy_list<span class="token punctuation">(</span>self<span class="token punctuation">.</span>urls<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>filename <span class="token operator">=</span> <span class="token string">'proxy.txt'</span>
+        self<span class="token punctuation">.</span>saveFile<span class="token punctuation">(</span>self<span class="token punctuation">.</span>filename<span class="token punctuation">,</span>self<span class="token punctuation">.</span>proxylist<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">get_urls</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
+        返回一个代理url的列表
+        '''</span>
+        urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            url <span class="token operator">=</span> self<span class="token punctuation">.</span>starturl<span class="token operator">+</span>str<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+            urls<span class="token punctuation">.</span>append<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> urls
+
+    <span class="token keyword">def</span> <span class="token function">get_proxy_list</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>urls<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
+        返回抓取到代理的列表
+        整个爬虫的关键
+        '''</span>
+
+        browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>PhantomJS<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        proxy_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+
+        <span class="token keyword">for</span> url <span class="token keyword">in</span> urls<span class="token punctuation">:</span>
+            browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+            browser<span class="token punctuation">.</span>implicitly_wait<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 找到代理table的位置</span>
+            elements <span class="token operator">=</span> browser<span class="token punctuation">.</span>find_elements_by_xpath<span class="token punctuation">(</span><span class="token string">'//tbody/tr'</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> element <span class="token keyword">in</span> elements<span class="token punctuation">:</span>
+                item <span class="token operator">=</span> Item<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                item<span class="token punctuation">.</span>ip <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./td[1]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+                item<span class="token punctuation">.</span>port <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./td[2]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+                item<span class="token punctuation">.</span>anonymous <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./td[3]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+                item<span class="token punctuation">.</span>local <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./td[4]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+                item<span class="token punctuation">.</span>speed <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./td[5]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+                <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>ip<span class="token punctuation">)</span>
+                proxy_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+
+        browser<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> proxy_list
+
+    <span class="token keyword">def</span> <span class="token function">saveFile</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>filename<span class="token punctuation">,</span>proxy_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
+        将爬取到的结果写到本地
+        '''</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span>filename<span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> item <span class="token keyword">in</span> proxy_list<span class="token punctuation">:</span>
+
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>item<span class="token punctuation">.</span>ip <span class="token operator">+</span> <span class="token string">'\t'</span><span class="token punctuation">)</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>item<span class="token punctuation">.</span>port <span class="token operator">+</span> <span class="token string">'\t'</span><span class="token punctuation">)</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>item<span class="token punctuation">.</span>anonymous <span class="token operator">+</span> <span class="token string">'\t'</span><span class="token punctuation">)</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>item<span class="token punctuation">.</span>local <span class="token operator">+</span> <span class="token string">'\t'</span><span class="token punctuation">)</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>item<span class="token punctuation">.</span>speed <span class="token operator">+</span> <span class="token string">'\n\n'</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    Get <span class="token operator">=</span> GetProxy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -987,99 +1057,6 @@
 
 
 
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fa fa-list"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).slideUp(500);
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).slideDown(500);
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
     
 
 
@@ -1096,7 +1073,7 @@
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.7k</span>&nbsp;字
+                class="white-color">16.6k</span>&nbsp;字
             
             
             
