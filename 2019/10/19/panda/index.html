@@ -4,13 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="scrapy框架, 迦勒底">
-    <meta name="description" content="英文文档中文文档
-Scrapy框架的具体使用：步骤一：创建一个工程和spider模板#在一个目录里执行代码，创建工程名为zimuku
-scrapy startproject zimuku
+    <meta name="keywords" content="pandas, 迦勒底">
+    <meta name="description" content="导包import numpy as np
+import pandas as pd
 
-
-目录结构├── zimuku          ">
+创建对象创建一个Series
+Series是一维标量数组能够保存任何数据类型（整数，字符串，浮点数，Python对象等）。轴标签统称为索引。创建系列的基本方">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@ scrapy startproject zimuku
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>scrapy框架 | 迦勒底</title>
+    <title>pandas | 迦勒底</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -326,13 +325,13 @@ scrapy startproject zimuku
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        scrapy框架
+                        pandas
                     </div>
                 </div>
             </div>
@@ -443,12 +442,12 @@ scrapy startproject zimuku
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/爬虫/" target="_blank">
-                                <span class="chip bg-color">爬虫</span>
+                            <a href="/tags/pandas/" target="_blank">
+                                <span class="chip bg-color">pandas</span>
                             </a>
                         
-                            <a href="/tags/Scrapy/" target="_blank">
-                                <span class="chip bg-color">Scrapy</span>
+                            <a href="/tags/数据分析/" target="_blank">
+                                <span class="chip bg-color">数据分析</span>
                             </a>
                         
                     </div>
@@ -471,21 +470,21 @@ scrapy startproject zimuku
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-13
+                    2019-10-19
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        588
+                        986
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        4 分
                     </div>
                     
                 
@@ -501,77 +500,109 @@ scrapy startproject zimuku
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="https://docs.scrapy.org/en/latest/" target="_blank" rel="noopener">英文文档</a><br><a href="https://scrapy-chs.readthedocs.io/zh_CN/0.24/index.html" target="_blank" rel="noopener">中文文档</a></p>
-<h2 id="Scrapy框架的具体使用："><a href="#Scrapy框架的具体使用：" class="headerlink" title="Scrapy框架的具体使用："></a>Scrapy框架的具体使用：</h2><h3 id="步骤一：创建一个工程和spider模板"><a href="#步骤一：创建一个工程和spider模板" class="headerlink" title="步骤一：创建一个工程和spider模板"></a>步骤一：创建一个工程和spider模板</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#在一个目录里执行代码，创建工程名为zimuku</span>
-scrapy startproject zimuku
+                <h3 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<blockquote>
-<p>目录结构<br>├── zimuku                  #外层目录<br>│   ├── <strong>init</strong>.py         #初始化脚本<br>│   ├── <strong>pycache</strong>         #Python缓存文件。暂时无视<br>│   ├── items.py            #Items代码模板，继承类自scrapy.Item<br>│   ├── middlewares.py      #Middlewares代码模板(继承类)<br>│   ├── pipelines.py        #Pipelines代码模板(继承类)<br>│   ├── settings.py         #Scrapy爬虫的配置文件<br>│   └── spiders             #Spiders代码模板目录 我们写爬虫的地方<br>│       ├── <strong>init</strong>.py<br>│       └── <strong>pycache</strong><br>└── scrapy.cfg              #部署爬虫的配置文件</p>
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><h4 id="创建一个Series"><a href="#创建一个Series" class="headerlink" title="创建一个Series"></a>创建一个<a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dsintro" target="_blank" rel="noopener">Series</a></h4><blockquote>
+<p>Series是一维标量数组能够保存任何数据类型（整数，字符串，浮点数，Python对象等）。轴标签统称为索引。创建系列的基本方法是调用：<br>s = pd.Series(data, index=index)<br>在这里，data可以有很多不同的东西：</p>
+<ul>
+<li>Python字典</li>
+<li>ndarray</li>
+<li>标量值（如5）</li>
+</ul>
 </blockquote>
-<p>进入到工程文件<br>cd zimuku<br>用命令行创建第一个Spider：<br>scrapy genspider demo <a href="http://zimuku.net" target="_blank" rel="noopener">http://zimuku.net</a></p>
-<blockquote>
-<p>战术总结<br>1.scrapy startproject zimuku<br>2.scrapy genspider demo <a href="http://zimuku.net" target="_blank" rel="noopener">http://zimuku.net</a></p>
-</blockquote>
-<h3 id="步骤二：编写Spider"><a href="#步骤二：编写Spider" class="headerlink" title="步骤二：编写Spider"></a>步骤二：编写Spider</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> scrapy
+<pre><code>In [3]: s = pd.Series([1, 3, 5, np.nan, 6, 8])
 
-<span class="token comment" spellcheck="true"># 将我们需要爬的项目引入进来</span>
-<span class="token keyword">from</span> zimuku<span class="token punctuation">.</span>items <span class="token keyword">import</span> ZimukuItem
+In [4]: s
+Out[4]:
+0    1.0
+1    3.0
+2    5.0
+3    NaN
+4    6.0
+5    8.0
+dtype: float64</code></pre><h4 id="创建一个DataFrame"><a href="#创建一个DataFrame" class="headerlink" title="创建一个DataFrame"></a>创建一个<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" target="_blank" rel="noopener">DataFrame</a></h4><p>通过传递带有日期时间索引和带标签的列的NumPy数组来创建：</p>
+<pre><code>In [5]: dates = pd.date_range('20130101', periods=6)
 
-<span class="token keyword">class</span> <span class="token class-name">DemoSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+In [6]: dates
+Out[6]:
+DatetimeIndex(['2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04',
+               '2013-01-05', '2013-01-06'],
+              dtype='datetime64[ns]', freq='D')
 
-    <span class="token comment" spellcheck="true">#该爬虫的名字</span>
-    name <span class="token operator">=</span> <span class="token string">"demo"</span>
+In [7]: df = pd.DataFrame(np.random.randn(6, 4), index=dates, columns=list('ABCD'))
 
-    <span class="token comment" spellcheck="true">#规定爬虫爬取网页的域名</span>
-    allowed_domains <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"zimuku.net"</span><span class="token punctuation">]</span>
+In [8]: df
+Out[8]:
+                   A         B         C         D
+2013-01-01  0.469112 -0.282863 -1.509059 -1.135632
+2013-01-02  1.212112 -0.173215  0.119209 -1.044236
+2013-01-03 -0.861849 -2.104569 -0.494929  1.071804
+2013-01-04  0.721555 -0.706771 -1.039575  0.271860
+2013-01-05 -0.424972  0.567020  0.276232 -1.087401
+2013-01-06 -0.673690  0.113648 -1.478427  0.524988
+</code></pre><p>通过传递对象的字典来创建，这些对象可以转换为类似序列的对象。</p>
+<pre><code>In [9]: df2 = pd.DataFrame({'A': 1.,
+   ...:                     'B': pd.Timestamp('20130102'),
+   ...:                     'C': pd.Series(1, index=list(range(4)), dtype='float32'),
+   ...:                     'D': np.array([3] * 4, dtype='int32'),
+   ...:                     'E': pd.Categorical(["test", "train", "test", "train"]),
+   ...:                     'F': 'foo'})
+   ...:
 
-    <span class="token comment" spellcheck="true">#开始爬取的url链接</span>
-    start_urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'http://zimuku.net/'</span><span class="token punctuation">]</span>
+In [10]: df2
+Out[10]:
+     A          B    C  D      E    F
+0  1.0 2013-01-02  1.0  3   test  foo
+1  1.0 2013-01-02  1.0  3  train  foo
+2  1.0 2013-01-02  1.0  3   test  foo
+3  1.0 2013-01-02  1.0  3  train  foo
+</code></pre><h3 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token punctuation">.</span>head<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#查看前i个数据</span>
+<span class="token punctuation">.</span>tail<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#查看后i个数据</span>
+<span class="token punctuation">.</span>index <span class="token comment" spellcheck="true">#查看索引</span>
+<span class="token punctuation">.</span>columns <span class="token comment" spellcheck="true">#查看表头</span>
+<span class="token punctuation">.</span>to_numpy<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#转换为numpy数组</span>
+<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#显示数据的快速统计摘要</span>
+<span class="token punctuation">.</span>T <span class="token comment" spellcheck="true">#转置数据</span>
+<span class="token punctuation">.</span>sort_index<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token punctuation">,</span>ascending<span class="token operator">=</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#参数axis只有两个值，分别是0和1，而df中只有两个index分别是表最左一列的时间和表最上一行的ABCDEaxis=0对应的是对左边一列的index进行排序，ascending=False代表降序，ascending=True代表升序</span>
+<span class="token punctuation">.</span>sort_values<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><pre class="line-numbers language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#选出表头为A的那列</span>
+df<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#选出前三行</span>
+df<span class="token punctuation">[</span><span class="token string">'20130102'</span><span class="token punctuation">:</span><span class="token string">'20130104'</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#选出20130102到20130104之间的的行</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>dates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#使用标签获取</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token string">'20130102'</span><span class="token punctuation">:</span><span class="token string">'20130104'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'B'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#通过行列选区</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>dates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'A'</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#同下</span>
+df<span class="token punctuation">.</span>at<span class="token punctuation">[</span>dates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'A'</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#快速访问标量</span>
 
-    <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">'''
-        parse()函数接收Response参数，就是网页爬取后返回的数据
-        用于处理响应，他负责解析爬取的内容
-        生成解析结果的字典，并返回新的需要爬取的请求
-        '''</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#通过传递整数的位置进行选择</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#通过切片</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#通过整数位置</span>
+dfiloc<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#切片行</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#切片列</span>
+df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#根据坐标获取</span>
+df<span class="token punctuation">.</span>iat<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#同上</span>
 
-        <span class="token comment" spellcheck="true">#由于是demo 我们不做完全的功能，</span>
-        <span class="token comment" spellcheck="true">#只要求爬取出第一个字幕的名字</span>
-        <span class="token comment" spellcheck="true">#xpath规则可以通过查看网页源文件得出</span>
-        name <span class="token operator">=</span> response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//b/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-
-        <span class="token comment" spellcheck="true">#建立一个items字典，用于保存我们爬到的结果，并返回给pipline处理</span>
-        items <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-        items<span class="token punctuation">[</span><span class="token string">'第一个'</span><span class="token punctuation">]</span><span class="token operator">=</span> name
-
-        <span class="token keyword">return</span> items
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="步骤三：-编写Item、Pipeline"><a href="#步骤三：-编写Item、Pipeline" class="headerlink" title="步骤三： 编写Item、Pipeline"></a>步骤三： 编写Item、Pipeline</h3><p>itmes.py定义这个爬虫框架需要爬哪些内容：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> scrapy
-<span class="token keyword">class</span> <span class="token class-name">ZimukuItem</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># define the fields for your item here like:</span>
-    <span class="token comment" spellcheck="true"># name = scrapy.Field()</span>
-    subname <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#字幕的名字</span>
+df<span class="token punctuation">[</span>df<span class="token punctuation">.</span>A<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#选出A列大于0的值</span>
+df<span class="token punctuation">[</span>df<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#选出所有大于0的值</span>
+df<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>isin<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span><span class="token string">'2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#选出在某一范围的值</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="设置值"><a href="#设置值" class="headerlink" title="设置值"></a>设置值</h3><pre class="line-numbers language-python"><code class="language-python"> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> index<span class="token operator">=</span>pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'20130102'</span><span class="token punctuation">,</span> periods<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#设置新列自动按索引排序</span>
+ df<span class="token punctuation">.</span>at<span class="token punctuation">[</span>dates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'A'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span> <span class="token comment" spellcheck="true">#通过标签设置</span>
+df<span class="token punctuation">.</span>iat<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span> <span class="token comment" spellcheck="true">#通过坐标设置</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token string">'D'</span><span class="token punctuation">]</span> <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#通过numpy数组设置</span>
+df2<span class="token punctuation">[</span>df2<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">-</span>df2 <span class="token comment" spellcheck="true">#就内个意思</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>piplines.py来处理spider爬到的内容：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">ZimukuPipeline</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-        <span class="token comment" spellcheck="true"># 只要求简单的话，</span>
-        <span class="token comment" spellcheck="true"># 我们把爬到的结果打印一下吧</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-
-        <span class="token keyword">return</span> item
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="步骤四：-优化配置Settings-py"><a href="#步骤四：-优化配置Settings-py" class="headerlink" title="步骤四： 优化配置Settings.py"></a>步骤四： 优化配置Settings.py</h3><pre class="line-numbers language-python"><code class="language-python">BOT_NAME <span class="token operator">=</span> <span class="token string">'zimuku'</span>
-
-SPIDER_MODULES <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'zimuku.spiders'</span><span class="token punctuation">]</span>
-NEWSPIDER_MODULE <span class="token operator">=</span> <span class="token string">'zimuku.spiders'</span>
-ROBOTSTXT_OBEY <span class="token operator">=</span> <span class="token boolean">True</span>
-<span class="token comment" spellcheck="true">#只增加了这一行，通过配置告诉Scrapy明白是谁来处理结果</span>
-ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'zimuku.pipelines.ZimukuPipeline'</span><span class="token punctuation">:</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="获得结果"><a href="#获得结果" class="headerlink" title="获得结果"></a>获得结果</h3><p>scrapy crawl demo</p>
+<h3 id="处理缺失数据"><a href="#处理缺失数据" class="headerlink" title="处理缺失数据"></a>处理缺失数据</h3><pre class="line-numbers language-python"><code class="language-python">df1 <span class="token operator">=</span> df<span class="token punctuation">.</span>reindex<span class="token punctuation">(</span>index<span class="token operator">=</span>dates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>columns<span class="token operator">=</span>list<span class="token punctuation">(</span>df<span class="token punctuation">.</span>columns<span class="token punctuation">)</span><span class="token operator">+</span><span class="token punctuation">[</span><span class="token string">'E'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#加一列</span>
+df1<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>dates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>dates<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'E'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment" spellcheck="true">#E列前两行设置为1</span>
+df1<span class="token punctuation">.</span>dropna<span class="token punctuation">(</span>how<span class="token operator">=</span><span class="token string">'any'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#删掉所有有丢失数据的行</span>
+df1<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#填充缺失数据</span>
+pd<span class="token punctuation">.</span>isna<span class="token punctuation">(</span>df1<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#值空返回True 不空返回False</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><pre class="line-numbers language-python"><code class="language-python">df<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">or</span> df<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#按列求平均值</span>
+df<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#按行求平均值</span>
+pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>nan<span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">,</span> index<span class="token operator">=</span>dates<span class="token punctuation">)</span><span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#shift从指定位置开始对齐</span>
+df<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>s<span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token string">'index'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#对不同维度的 pandas 对象进行减法操作</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -624,9 +655,9 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《scrapy框架》
+                    《pandas》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/13/scrapy/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/19/panda/" property="cc:attributionName"
                rel="cc:attributionURL">
                 刘坤胤
             </a> 采用
@@ -667,7 +698,7 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
         repo: 'blogtalk',
         owner: 'liukunyin',
         admin: "liukunyin",
-        id: '2019-10-13T21-11-38',
+        id: '2019-10-19T21-08-51',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -948,28 +979,29 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/14/scrapy-1/">
+                <a href="/2019/10/19/panda/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Scrapy应用(一)">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="pandas">
                         
-                        <span class="card-title">Scrapy应用(一)</span>
+                        <span class="card-title">pandas</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            4399&数据存储
+                            数据分析工具panda
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -982,15 +1014,16 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/爬虫/" target="_blank">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/pandas/" target="_blank">
+                        <span class="chip bg-color">pandas</span>
                     </a>
                     
-                    <a href="/tags/Scrapy/" target="_blank">
-                        <span class="chip bg-color">Scrapy</span>
+                    <a href="/tags/数据分析/" target="_blank">
+                        <span class="chip bg-color">数据分析</span>
                     </a>
                     
                 </div>
@@ -1004,23 +1037,23 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/13/bs4-tieba2/">
+                <a href="/2019/10/18/selenium/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="bs4库应用(三)">
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Selenium&PhantomJS">
                         
-                        <span class="card-title">bs4库应用(三)</span>
+                        <span class="card-title">Selenium&PhantomJS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            爬取晒卡集中贴的海豹图
+                            浏览器爬虫
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-13
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-18
                             </span>
                         <span class="publish-author">
                             
@@ -1041,8 +1074,8 @@ ITEM_PIPELINES<span class="token operator">=</span><span class="token punctuatio
                         <span class="chip bg-color">爬虫</span>
                     </a>
                     
-                    <a href="/tags/bs4库/" target="_blank">
-                        <span class="chip bg-color">bs4库</span>
+                    <a href="/tags/Selenium/" target="_blank">
+                        <span class="chip bg-color">Selenium</span>
                     </a>
                     
                 </div>

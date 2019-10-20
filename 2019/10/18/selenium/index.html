@@ -386,14 +386,14 @@ implicitly_wait（）：浏览器解释JS脚本是需要时间的，但实际上
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1k
+                        1.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        6 分
                     </div>
                     
                 
@@ -571,6 +571,93 @@ selenium模拟浏览器爬虫
     Get <span class="token operator">=</span> GetProxy<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="实践：爬取b站排行榜信息"><a href="#实践：爬取b站排行榜信息" class="headerlink" title="实践：爬取b站排行榜信息"></a>实践：爬取b站排行榜信息</h1><pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
+selenium模拟浏览器爬虫
+
+爬取b站排行榜信息
+'''</span>
+
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+
+
+<span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    我们模拟Scrapy框架
+    写一个item类出来
+    '''</span>
+    rank <span class="token operator">=</span> None <span class="token comment" spellcheck="true">#排名</span>
+    title <span class="token operator">=</span> None  <span class="token comment" spellcheck="true">#名</span>
+    play_num <span class="token operator">=</span> None <span class="token comment" spellcheck="true">#播放量</span>
+    danmu_num <span class="token operator">=</span> None <span class="token comment" spellcheck="true">#弹幕量</span>
+    author <span class="token operator">=</span> None <span class="token comment" spellcheck="true">#作者</span>
+    score <span class="token operator">=</span> None <span class="token comment" spellcheck="true">#综合得分</span>
+    url <span class="token operator">=</span> None <span class="token comment" spellcheck="true">#链接</span>
+<span class="token keyword">class</span> <span class="token class-name">Get</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    获取代理的类
+    '''</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
+        初始化整个类
+        '''</span>
+        self<span class="token punctuation">.</span>starturl <span class="token operator">=</span> <span class="token string">'https://www.bilibili.com/ranking'</span>
+        self<span class="token punctuation">.</span>ranklist <span class="token operator">=</span> self<span class="token punctuation">.</span>get_rank_list<span class="token punctuation">(</span>self<span class="token punctuation">.</span>starturl<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>filename <span class="token operator">=</span> <span class="token string">'rank.txt'</span>
+        self<span class="token punctuation">.</span>saveFile<span class="token punctuation">(</span>self<span class="token punctuation">.</span>filename<span class="token punctuation">,</span>self<span class="token punctuation">.</span>ranklist<span class="token punctuation">)</span>
+
+
+
+    <span class="token keyword">def</span> <span class="token function">get_rank_list</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
+        返回抓取到代理的列表
+        整个爬虫的关键
+        '''</span>
+        browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        rank_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+        browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+        browser<span class="token punctuation">.</span>implicitly_wait<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 找到代理table的位置</span>
+        elements <span class="token operator">=</span> browser<span class="token punctuation">.</span>find_elements_by_xpath<span class="token punctuation">(</span><span class="token string">'//ul[@class="rank-list"]/li[@class="rank-item"]'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> element <span class="token keyword">in</span> elements<span class="token punctuation">:</span>
+            item <span class="token operator">=</span> Item<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            item<span class="token punctuation">.</span>rank <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./div[@class="num"]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+            item<span class="token punctuation">.</span>title <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./div[@class="content"]/div[@class="info"]/a[@class="title"]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+            item<span class="token punctuation">.</span>play_num <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./div[@class="content"]/div[@class="info"]/div[@class="detail"]/span[@class="data-box"][position()=1]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+            item<span class="token punctuation">.</span>danmu_num <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./div[@class="content"]/div[@class="info"]/div[@class="detail"]/span[@class="data-box"][position()=2]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+            item<span class="token punctuation">.</span>author <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./div[@class="content"]/div[@class="info"]/div[@class="detail"]/a/span[@class="data-box"]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+            item<span class="token punctuation">.</span>score <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./div[@class="content"]/div[@class="info"]/div[@class="pts"]/div'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+            item<span class="token punctuation">.</span>url <span class="token operator">=</span> element<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'./div[@class="content"]/div[@class="img"]/a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_attribute<span class="token punctuation">(</span><span class="token string">'href'</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>rank<span class="token punctuation">)</span>
+            rank_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+
+        browser<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> rank_list
+
+    <span class="token keyword">def</span> <span class="token function">saveFile</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>filename<span class="token punctuation">,</span>rank_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
+        将爬取到的结果写到本地
+        '''</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span>filename<span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> item <span class="token keyword">in</span> rank_list<span class="token punctuation">:</span>
+
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'NO.'</span><span class="token operator">+</span>item<span class="token punctuation">.</span>rank <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'title:'</span><span class="token operator">+</span>item<span class="token punctuation">.</span>title <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'play:'</span><span class="token operator">+</span>item<span class="token punctuation">.</span>play_num <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'danmu:'</span><span class="token operator">+</span>item<span class="token punctuation">.</span>danmu_num <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'author:'</span><span class="token operator">+</span>item<span class="token punctuation">.</span>author <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'score:'</span><span class="token operator">+</span>item<span class="token punctuation">.</span>score <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'author:'</span><span class="token operator">+</span>item<span class="token punctuation">.</span>url <span class="token operator">+</span> <span class="token string">'\n\n'</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    Get <span class="token operator">=</span> Get<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>坑获取标签属性要用get_attribute(‘’) 还以为爬不了呢</p>
+</blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -947,29 +1034,28 @@ selenium模拟浏览器爬虫
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/10/18/selenium/">
+                <a href="/2019/10/19/panda/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Selenium&PhantomJS">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="pandas">
                         
-                        <span class="card-title">Selenium&PhantomJS</span>
+                        <span class="card-title">pandas</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            浏览器爬虫
+                            数据分析工具panda
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -982,16 +1068,15 @@ selenium模拟浏览器爬虫
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/爬虫/" target="_blank">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/pandas/" target="_blank">
+                        <span class="chip bg-color">pandas</span>
                     </a>
                     
-                    <a href="/tags/Selenium/" target="_blank">
-                        <span class="chip bg-color">Selenium</span>
+                    <a href="/tags/数据分析/" target="_blank">
+                        <span class="chip bg-color">数据分析</span>
                     </a>
                     
                 </div>
@@ -1073,7 +1158,7 @@ selenium模拟浏览器爬虫
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.6k</span>&nbsp;字
+                class="white-color">18k</span>&nbsp;字
             
             
             
