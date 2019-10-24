@@ -477,7 +477,7 @@ bs4 库首先将传入的字符串或文件句柄转换为 U">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        656
+                        657
                     </div>
                     
 
@@ -507,12 +507,12 @@ bs4 库首先将传入的字符串或文件句柄转换为 U">
 <p>bs4 库首先将传入的字符串或文件句柄转换为 Unicode的类型，这样，我们在抓取中文信息的时候，就不会有很麻烦的编码问题了。当然，有一些生僻的编码 如：‘big5’，就需要我们手动设置编码：<br>soup = BeautifulSoup(markup, from_encoding=”编码方式”)</p>
 </blockquote>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#2019-10-11 21:00:57</span>
-<span class="token keyword">import</span> request
+<span class="token keyword">import</span> requests
 <span class="token comment" spellcheck="true">#导入bs4模块</span>
 <span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
-html <span class="token operator">=</span> request<span class="token punctuation">.</span>getHtmlText<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
+html <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">#做一个美味汤</span>
-soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span> <span class="token string">'lxml'</span><span class="token punctuation">)</span>
+soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token string">'lxml'</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">#输出结果</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>prettify<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1164,7 +1164,7 @@ soup <span class="token operator">=</span> BeautifulSoup<span class="token punct
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18k</span>&nbsp;字
+                class="white-color">20.5k</span>&nbsp;字
             
             
             
