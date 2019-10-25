@@ -4,8 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Scrapy应用(三), 迦勒底">
-    <meta name="description" content="爬虫攻防Scrapy框架在突破反爬虫技术上有十分强大的框架给我们用，很多时候我们只需要自己改一些设定就能和网站管理员玩“猫捉老鼠”的游戏了但是想要更多的自定义，需要我们自己写“MIddleWares：中间件”更多的可以参考一下文档：下载器中">
+    <meta name="keywords" content="pandas练习题, 迦勒底">
+    <meta name="description" content="数据集下载
+
+练习1-开始了解你的数据,探索Chipotle快餐数据1)将数据集存入一个名为chipo的数据框内import pandas as pd
+
+#sep=&#34;\t&#34; 表示以tab（制表符）为分隔符
+chipo = pd.read_c">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Scrapy应用(三) | 迦勒底</title>
+    <title>pandas练习题 | 迦勒底</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -321,13 +326,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Scrapy应用(三)
+                        pandas练习题
                     </div>
                 </div>
             </div>
@@ -438,12 +443,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/爬虫/" target="_blank">
-                                <span class="chip bg-color">爬虫</span>
+                            <a href="/tags/pandas/" target="_blank">
+                                <span class="chip bg-color">pandas</span>
                             </a>
                         
-                            <a href="/tags/Scrapy/" target="_blank">
-                                <span class="chip bg-color">Scrapy</span>
+                            <a href="/tags/数据分析/" target="_blank">
+                                <span class="chip bg-color">数据分析</span>
                             </a>
                         
                     </div>
@@ -466,21 +471,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-17
+                    2019-10-25
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.2k
+                        1.8k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        7 分
                     </div>
                     
                 
@@ -496,100 +501,89 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="爬虫攻防"><a href="#爬虫攻防" class="headerlink" title="爬虫攻防"></a>爬虫攻防</h1><p>Scrapy框架在突破反爬虫技术上有十分强大的框架给我们用，<br>很多时候我们只需要自己改一些设定就能和网站管理员玩“猫捉老鼠”的游戏了<br>但是想要更多的自定义，需要我们自己写“MIddleWares：中间件”<br>更多的可以参考一下文档：<br><a href="https://scrapy-chs.readthedocs.io/zh_CN/0.24/topics/downloader-middleware.html" target="_blank" rel="noopener">下载器中间件</a></p>
-<h4 id="1-突破时间间隔封锁："><a href="#1-突破时间间隔封锁：" class="headerlink" title="1.突破时间间隔封锁："></a>1.突破时间间隔封锁：</h4><p>很多网站对于人和爬虫的判断，基于访问的速度：爬虫可以做到1s内十次上百次的访问，人类却明显做不到。<br>scrapy框架只要在settings.py里设置就能改变访问的速度：</p>
-<pre class="line-numbers language-python"><code class="language-python">DOWNLOAD_DELAY <span class="token operator">=</span> <span class="token number">1</span>
+                <p><a href="https://github.com/Rango-2017/Pandas_exercises" target="_blank" rel="noopener">数据集下载</a></p>
+<p><img src="1.jpg" alt=""></p>
+<h3 id="练习1-开始了解你的数据-探索Chipotle快餐数据"><a href="#练习1-开始了解你的数据-探索Chipotle快餐数据" class="headerlink" title="练习1-开始了解你的数据,探索Chipotle快餐数据"></a>练习1-开始了解你的数据,探索Chipotle快餐数据</h3><h4 id="1-将数据集存入一个名为chipo的数据框内"><a href="#1-将数据集存入一个名为chipo的数据框内" class="headerlink" title="1)将数据集存入一个名为chipo的数据框内"></a>1)将数据集存入一个名为chipo的数据框内</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+
+<span class="token comment" spellcheck="true">#sep="\t" 表示以tab（制表符）为分隔符</span>
+chipo <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'Pandas_exercises-master/chipotle.tsv'</span><span class="token punctuation">,</span>sep<span class="token operator">=</span><span class="token string">'\t'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-查看前10行内容-head"><a href="#2-查看前10行内容-head" class="headerlink" title="2)查看前10行内容(head())"></a>2)查看前10行内容(head())</h4><pre class="line-numbers language-python"><code class="language-python">chipo<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这里代表：每1s访问一次。<br>如果不考虑网站管理员的反爬虫，这个值当然越小越快，<br>但是总是会有一个 阈值 小于这个值，你的spider就要被封锁咯~<br>所以具体还是得自己实际测试才能知道。</p>
-<h4 id="2-突破Cookie封锁："><a href="#2-突破Cookie封锁：" class="headerlink" title="2.突破Cookie封锁："></a>2.突破Cookie封锁：</h4><p>虽然我们没遇到过，但是众所周知，cookies是来确定用户身份的一长串数据，如果有的网站对cookie进行简单的检验，我们简单的设置一下也能解决：</p>
-<pre class="line-numbers language-python"><code class="language-python">COOKIES_ENABLED <span class="token operator">=</span> <span class="token boolean">False</span>
+<h4 id="3-数据集中有多少个列columns？-shape"><a href="#3-数据集中有多少个列columns？-shape" class="headerlink" title="3)数据集中有多少个列columns？(shape[])"></a>3)数据集中有多少个列columns？(shape[])</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#.shape[1]返回列数,.shape[0]返回行数</span>
+<span class="token comment" spellcheck="true">#len(df) out:[* rows x * columns]</span>
+chipo<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-打印出全部的列名称-colums"><a href="#4-打印出全部的列名称-colums" class="headerlink" title="4)打印出全部的列名称(colums)"></a>4)打印出全部的列名称(colums)</h4><pre class="line-numbers language-python"><code class="language-python">chipo<span class="token punctuation">.</span>columns
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这里我们就禁用了cookie</p>
-<h4 id="3-突破user-agent封锁："><a href="#3-突破user-agent封锁：" class="headerlink" title="3.突破user-agent封锁："></a>3.突破user-agent封锁：</h4><p>这种方式，本质上就是对headers进行判断，在前面的bs4爬虫攻防里我已经具体介绍过了，我就不多说了。<br>从这里开始就需要我们自己写中间件，才能够完成任务了。<br>首先，在与settings.py的同级目录建立文件夹：</p>
-<blockquote>
-<p>middlewares</p>
-</blockquote>
-<p>接着，在文件夹下创建：</p>
-<pre><code>__init__.py</code></pre><p>这样可以让Python认为这个文件是一个可以导入的包<br>然后，我们开始写中间件：</p>
-<blockquote>
-<p>customUserAgent.py</p>
-</blockquote>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
-自定义scrapy框架的
-user-agent头
-从一个被良好维护的user-agent列表里
-随机筛选合适的user-agent
-防止封锁
+<h4 id="5-数据集的索引是怎样的？-index"><a href="#5-数据集的索引是怎样的？-index" class="headerlink" title="5)数据集的索引是怎样的？(index)"></a>5)数据集的索引是怎样的？(index)</h4><pre class="line-numbers language-python"><code class="language-python">chipo<span class="token punctuation">.</span>index
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="6-被下单数最多商品item是什么-sum-amp-value-counts"><a href="#6-被下单数最多商品item是什么-sum-amp-value-counts" class="headerlink" title="6)!!!被下单数最多商品item是什么?(sum&amp;value_counts)"></a>6)!!!被下单数最多商品item是什么?(sum&amp;value_counts)</h4><p>这两种方法结果为啥不同呢?<a href="https://stackoverflow.com/questions/55249661/value-counts-vs-groupbyxxx-sum" target="_blank" rel="noopener">解答</a></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#不准确item=chipo[['item_name','quantity']].groupby(by=['item_name']).sum().sort_values(by=['quantity'],ascending=False).head(1)</span>
+<span class="token triple-quoted-string string">'''
+value_counts() is, count values without looking at what the value actually is. So 1 and 100 on that column will be treated as the same -- you have one count.
+sum(), however, sum up the columns. So if you have two rows, one is 1 and another is 100, your sum is 101 while the count is 2.
 '''</span>
-<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>contrib<span class="token punctuation">.</span>downloadermiddleware<span class="token punctuation">.</span>useragent <span class="token keyword">import</span> UserAgentMiddleware
 
-<span class="token keyword">import</span> random
+chipo<span class="token punctuation">[</span><span class="token string">'item_name'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
+<span class="token comment" spellcheck="true">#同理 求在choice_description中，下单次数最多的商品是什么？</span>
+chipo<span class="token punctuation">[</span><span class="token string">'choice_description'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="7-在item-name这一列中，一共有多少种商品被下单？-unique"><a href="#7-在item-name这一列中，一共有多少种商品被下单？-unique" class="headerlink" title="7)!!!在item_name这一列中，一共有多少种商品被下单？(unique())"></a>7)!!!在item_name这一列中，一共有多少种商品被下单？(unique())</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#1 unique()统计list、series中的不同值都是啥,返回的是list.</span>
+<span class="token comment" spellcheck="true">#2 nunique()可直接统计dataframe中每列的不同值的个数,也可用于series,但不能用于list.返回的是不同值的个数.</span>
+chipo<span class="token punctuation">.</span>item_name<span class="token punctuation">.</span>nunique<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
+<span class="token comment" spellcheck="true">#同理 在该数据集对应的时期内，一共有多少订单？</span>
+chipo<span class="token punctuation">[</span><span class="token string">'order_id'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>nunique<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true">#一个不容易被封锁的user-agent列表</span>
-agents <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0;'</span><span class="token punctuation">,</span>
-              <span class="token string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv,2.0.1) Gecko/20100101 Firefox/4.0.1'</span><span class="token punctuation">,</span>
-              <span class="token string">'Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) Presto/2.8.131 Version/11.11'</span><span class="token punctuation">,</span>
-              <span class="token string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11'</span><span class="token punctuation">,</span>
-              <span class="token string">'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; 360SE)'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="8-一共有多少商品被下单？-求总和"><a href="#8-一共有多少商品被下单？-求总和" class="headerlink" title="8)一共有多少商品被下单？(求总和)"></a>8)一共有多少商品被下单？(求总和)</h4><pre class="line-numbers language-python"><code class="language-python">chipo<span class="token punctuation">[</span><span class="token string">'quantity'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="9-将item-price转换为浮点数-apply-function"><a href="#9-将item-price转换为浮点数-apply-function" class="headerlink" title="9)将item_price转换为浮点数(.apply(function))"></a>9)将item_price转换为浮点数(.apply(function))</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#x[1:] 相当于取$后面的数字 $11.0->11.0</span>
+chipo<span class="token punctuation">[</span><span class="token string">'item_price'</span><span class="token punctuation">]</span> <span class="token operator">=</span> chipo<span class="token punctuation">[</span><span class="token string">'item_price'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> float<span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="10-在该数据集对应的时期内，收入revenue是多少？"><a href="#10-在该数据集对应的时期内，收入revenue是多少？" class="headerlink" title="10)在该数据集对应的时期内，收入revenue是多少？"></a>10)在该数据集对应的时期内，收入revenue是多少？</h4><pre class="line-numbers language-python"><code class="language-python">chipo<span class="token punctuation">[</span><span class="token string">'quantity'</span><span class="token punctuation">]</span> <span class="token operator">*</span> chipo<span class="token punctuation">[</span><span class="token string">'item_price'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="11-每一单order对应的平均总价是多少？-mean"><a href="#11-每一单order对应的平均总价是多少？-mean" class="headerlink" title="11)每一单order对应的平均总价是多少？(.mean())"></a>11)每一单order对应的平均总价是多少？(.mean())</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#df.mean()求平均值</span>
+chipo<span class="token punctuation">[</span><span class="token string">'item_price_sum'</span><span class="token punctuation">]</span> <span class="token operator">=</span> chipo<span class="token punctuation">[</span><span class="token string">'quantity'</span><span class="token punctuation">]</span> <span class="token operator">*</span> chipo<span class="token punctuation">[</span><span class="token string">'item_price'</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#不会有6)的问题 因为求和是准确的</span>
+chipo<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'order_id'</span><span class="token punctuation">,</span><span class="token string">'item_price_sum'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'order_id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="练习2-数据过滤与排序-探索2012欧洲杯数据"><a href="#练习2-数据过滤与排序-探索2012欧洲杯数据" class="headerlink" title="练习2-数据过滤与排序,探索2012欧洲杯数据"></a>练习2-数据过滤与排序,探索2012欧洲杯数据</h3><h4 id="1-将数据集命名为euro12"><a href="#1-将数据集命名为euro12" class="headerlink" title="1)将数据集命名为euro12"></a>1)将数据集命名为euro12</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#已经是表不用设置sep</span>
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+euro12 <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'Pandas_exercises-master/Euro2012.csv'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-将数据集中的列Team-Yellow-Cards和Red-Cards单独存为一个名叫discipline的数据框-df"><a href="#2-将数据集中的列Team-Yellow-Cards和Red-Cards单独存为一个名叫discipline的数据框-df" class="headerlink" title="2)将数据集中的列Team, Yellow Cards和Red Cards单独存为一个名叫discipline的数据框(df[[]])"></a>2)将数据集中的列Team, Yellow Cards和Red Cards单独存为一个名叫discipline的数据框(df[[]])</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#df['*']是不包含列索引的series,df[['*']]是包含列索引的dataframe.</span>
+<span class="token comment" spellcheck="true">#所以单中括号只可以写一个列</span>
+discipline <span class="token operator">=</span> euro12<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'Yellow Cards'</span><span class="token punctuation">,</span><span class="token string">'Red Cards'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-对数据框discipline按照先Red-Cards再Yellow-Cards进行排序-sort-values"><a href="#3-对数据框discipline按照先Red-Cards再Yellow-Cards进行排序-sort-values" class="headerlink" title="3)对数据框discipline按照先Red Cards再Yellow Cards进行排序(.sort_values())"></a>3)对数据框discipline按照先Red Cards再Yellow Cards进行排序(.sort_values())</h4><pre class="line-numbers language-python"><code class="language-python">discipline<span class="token punctuation">.</span>sort_values<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'Red Cards'</span><span class="token punctuation">,</span><span class="token string">'Yellow Cards'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>ascending <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="4-找到进球数Goals超过6的球队数据"><a href="#4-找到进球数Goals超过6的球队数据" class="headerlink" title="4)找到进球数Goals超过6的球队数据"></a>4)找到进球数Goals超过6的球队数据</h4><pre class="line-numbers language-python"><code class="language-python">euro12<span class="token punctuation">[</span>euro12<span class="token punctuation">.</span>Goals<span class="token operator">></span><span class="token number">6</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="5-选取以字母G开头的球队数据"><a href="#5-选取以字母G开头的球队数据" class="headerlink" title="5)选取以字母G开头的球队数据"></a>5)选取以字母G开头的球队数据</h4><pre class="line-numbers language-python"><code class="language-python">euro12<span class="token punctuation">[</span>euro12<span class="token punctuation">.</span>Team<span class="token punctuation">.</span>str<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">'G'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="6-用loc-iloc-ix索引数据"><a href="#6-用loc-iloc-ix索引数据" class="headerlink" title="6)用loc,iloc,ix索引数据"></a>6)用loc,iloc,ix索引数据</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#loc：通过行标签索引数据</span>
+<span class="token comment" spellcheck="true">#iloc：通过行号索引行数据</span>
+<span class="token comment" spellcheck="true">#ix：通过行标签或行号索引数据（基于loc和iloc的混合）用ix就得了</span>
+<span class="token comment" spellcheck="true">#选取前7列</span>
+euro12<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">]</span>
 
-<span class="token keyword">class</span> <span class="token class-name">RandomUserAgent</span><span class="token punctuation">(</span>UserAgentMiddleware<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">process_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>request<span class="token punctuation">,</span>spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">'''
-        定义下载中间件，
-        必须要写这个函数，
-        这是scrapy数据流转的一个环节
-        具体可以看文档:
-        http://scrapy-chs.readthedocs.io/zh_CN/0.24/topics/downloader-middleware.html
-        '''</span>
-        ua <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>agents<span class="token punctuation">)</span>
-        request<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span><span class="token string">'User-agent'</span><span class="token punctuation">,</span>ua<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这样就能每次发起访问请求的时候，随机选择一个user-agent了。</p>
-<p>当然，我们需要在settings.py里激活我们的下载中间件：<br><strong>* 注意，需要scrapy自身的user-agent中间件关闭！ *</strong></p>
-<blockquote>
-<p>DOWNLOADER_MIDDLEWARES = {<br>    ‘xxx.middlewares.coustomUserAgent.RandomUserAgent’: 20,<br>    ‘scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware’:None，<br>}</p>
-</blockquote>
-<h4 id="4-突破IP封锁："><a href="#4-突破IP封锁：" class="headerlink" title="4.突破IP封锁："></a>4.突破IP封锁：</h4><p>终于说道关键的部分了，不说这里，上一张我们弄出来的这么多代理都白费啦！<br>原理我也不多说了，自然是一个ip的频繁访问，导致被封ip了。<br>解决办法也很简单，写一个代理中间件，让他每次访问的时候都换一个ip就成：</p>
-<p>首先，我们要建立一个单独文件来存储可以用的代理：proxy.py</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
-通过爬取可用的免费代理，
-进行测试可用度之后
-筛选获得的代理
-将静态的资源文件写在功能文件之外
-方便及时更新维护。
-'''</span>
-proxies <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token string">'89.36.215.72:1189'</span><span class="token punctuation">,</span>
-    <span class="token string">'94.177.203.123:1189'</span><span class="token punctuation">,</span>
-    <span class="token string">'110.73.11.227:8123'</span><span class="token punctuation">,</span>
-    <span class="token string">'180.183.176.189:8080'</span><span class="token punctuation">,</span>
-    <span class="token string">'109.62.247.81:8080'</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这里单独写一个文件，是为了方便维护，毕竟免费的代理动不动就不能用啦！user-agent就不会，我们可以硬编码在功能里</p>
-<p>接着，创建我们的中间件:coustomProxy.py</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
-从本地文件proxy.py中
-读取可以用的代理列表
-并从中随机选择一个代理
-供给spider使用
-'''</span>
-<span class="token keyword">from</span> xiubai<span class="token punctuation">.</span>middlewares<span class="token punctuation">.</span>proxy <span class="token keyword">import</span> proxies
-<span class="token keyword">import</span> random
+<span class="token comment" spellcheck="true">#选取除了最后3列之外的全部列</span>
+euro12<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span>
 
-<span class="token keyword">class</span> <span class="token class-name">RandomProxy</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">process_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>request<span class="token punctuation">,</span>spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 从文件中随机选择一个代理</span>
-        proxy <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>proxies<span class="token punctuation">)</span>
-
-        request<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'proxy'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'http://{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>proxy<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>最后，设置settings.py,注意，这里和上面不一样，不能关闭scrapy本身的代理中间件，只需要让自己写的在官方之前执行就成。</p>
-<blockquote>
-<p>DOWNLOADER_MIDDLEWARES = {<br>    ‘xxx.middlewares.coustomProxy.RandomProxy’:10,<br>    ‘xxx.middlewares.coustomUserAgent.RandomUserAgent’: 20,<br>    ‘scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware’:None,<br>    ‘scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware’:100,<br>}</p>
-</blockquote>
+<span class="token comment" spellcheck="true">#找到英格兰(England)、意大利(Italy)和俄罗斯(Russia)的射正率(Shooting Accuracy)</span>
+euro12<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>euro12<span class="token punctuation">[</span><span class="token string">'Team'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>isin<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'England'</span><span class="token punctuation">,</span><span class="token string">'Italy'</span><span class="token punctuation">,</span><span class="token string">'Russia'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'Team'</span><span class="token punctuation">,</span><span class="token string">'Shooting Accuracy'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="练习3-数据分组-探索酒类消费数据"><a href="#练习3-数据分组-探索酒类消费数据" class="headerlink" title="练习3-数据分组,探索酒类消费数据"></a>练习3-数据分组,探索酒类消费数据</h3><p>– 将数据框命名为drinks<br>– 哪个大陆(continent)平均消耗的啤酒(beer)更多？<br>– 打印出每个大陆(continent)的红酒消耗(wine_servings)的描述性统计值<br>– 打印出每个大陆每种酒类别的消耗平均值<br>– 打印出每个大陆每种酒类别的消耗中位数<br>– 打印出每个大陆对spirit饮品消耗的平均值，最大值和最小值</p>
+<h3 id="练习4-Apply函数-探索1960-2014-美国犯罪数据"><a href="#练习4-Apply函数-探索1960-2014-美国犯罪数据" class="headerlink" title="练习4-Apply函数,探索1960 - 2014 美国犯罪数据"></a>练习4-Apply函数,探索1960 - 2014 美国犯罪数据</h3><p>– 将数据框命名为crime<br>– 每一列(column)的数据类型是什么样的？<br>– 将Year的数据类型转换为 datetime64<br>– 将列Year设置为数据框的索引<br>– 删除名为Total的列<br>– 按照Year（每十年）对数据框进行分组并求和<br>– 何时是美国历史上生存最危险的年代？</p>
+<h3 id="练习5-合并-探索虚拟姓名数据"><a href="#练习5-合并-探索虚拟姓名数据" class="headerlink" title="练习5-合并,探索虚拟姓名数据"></a>练习5-合并,探索虚拟姓名数据</h3><p>– 创建DataFrame<br>– 将上述的DataFrame分别命名为data1, data2, data3<br>– 将data1和data2两个数据框按照行的维度进行合并，命名为all_data<br>– 将data1和data2两个数据框按照列的维度进行合并，命名为all_data_col<br>– 打印data3<br>– 按照subject_id的值对all_data和data3作合并<br>– 对data1和data2按照subject_id作连接<br>– 找到 data1 和 data2 合并之后的所有匹配结果</p>
+<h3 id="练习6-统计-探索风速数据"><a href="#练习6-统计-探索风速数据" class="headerlink" title="练习6-统计,探索风速数据"></a>练习6-统计,探索风速数据</h3><p>– 将数据作存储并且设置前三列为合适的索引<br>– 2061年？我们真的有这一年的数据？创建一个函数并用它去修复这个bug<br>– 将日期设为索引，注意数据类型，应该是datetime64[ns]<br>– 对应每一个location，一共有多少数据值缺失<br>– 对应每一个location，一共有多少完整的数据值<br>– 对于全体数据，计算风速的平均值<br>– 创建一个名为loc_stats的数据框去计算并存储每个location的风速最小值，最大值，平均值和标准差<br>– 创建一个名为day_stats的数据框去计算并存储所有location的风速最小值，最大值，平均值和标准差<br>– 对于每一个location，计算一月份的平均风速<br>– 对于数据记录按照年为频率取样<br>– 对于数据记录按照月为频率取样</p>
+<h3 id="练习7-可视化-探索泰坦尼克灾难数据"><a href="#练习7-可视化-探索泰坦尼克灾难数据" class="headerlink" title="练习7-可视化,探索泰坦尼克灾难数据"></a>练习7-可视化,探索泰坦尼克灾难数据</h3><p>– 将数据框命名为titanic<br>– 将PassengerId设置为索引<br>– 绘制一个展示男女乘客比例的扇形图<br>– 绘制一个展示船票Fare, 与乘客年龄和性别的散点图<br>– 有多少人生还？<br>– 绘制一个展示船票价格的直方图</p>
+<h3 id="练习8-创建数据框-探索Pokemon数据"><a href="#练习8-创建数据框-探索Pokemon数据" class="headerlink" title="练习8-创建数据框,探索Pokemon数据"></a>练习8-创建数据框,探索Pokemon数据</h3><p>– 创建一个数据字典<br>– 将数据字典存为一个名叫pokemon的数据框中<br>– 数据框的列排序是字母顺序，请重新修改为name, type, hp, evolution, pokedex这个顺序<br>– 添加一个列place[‘park’,’street’,’lake’,’forest’]<br>– 查看每个列的数据类型</p>
+<h3 id="练习9-时间序列-探索Apple公司股价数据"><a href="#练习9-时间序列-探索Apple公司股价数据" class="headerlink" title="练习9-时间序列,探索Apple公司股价数据"></a>练习9-时间序列,探索Apple公司股价数据</h3><p>– 读取数据并存为一个名叫apple的数据框<br>– 查看每一列的数据类型<br>– 将Date这个列转换为datetime类型<br>– 将Date设置为索引<br>– 有重复的日期吗？<br>– 将index设置为升序<br>– 找到每个月的最后一个交易日(business day)<br>– 数据集中最早的日期和最晚的日期相差多少天？<br>– 在数据中一共有多少个月？<br>– 按照时间顺序可视化Adj Close值</p>
+<h3 id="练习10-删除数据-探索Iris纸鸢花数据"><a href="#练习10-删除数据-探索Iris纸鸢花数据" class="headerlink" title="练习10-删除数据,探索Iris纸鸢花数据"></a>练习10-删除数据,探索Iris纸鸢花数据</h3><p>– 将数据集存成变量iris<br>– 创建数据框的列名称[‘sepal_length’,’sepal_width’, ‘petal_length’, ‘petal_width’, ‘class’]<br>– 数据框中有缺失值吗？<br>– 将列petal_length的第10到19行设置为缺失值<br>– 将petal_lengt缺失值全部替换为1.0<br>– 删除列class<br>– 将数据框前三行设置为缺失值<br>– 删除有缺失值的行<br>– 重新设置索引</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -642,9 +636,9 @@ proxies <span class="token operator">=</span> <span class="token punctuation">[<
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Scrapy应用(三)》
+                    《pandas练习题》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/17/scrapy-3/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/25/pandas-test-1/" property="cc:attributionName"
                rel="cc:attributionURL">
                 刘坤胤
             </a> 采用
@@ -685,7 +679,7 @@ proxies <span class="token operator">=</span> <span class="token punctuation">[<
         repo: 'blogtalk',
         owner: 'liukunyin',
         admin: "liukunyin",
-        id: '2019-10-17T10-38-12',
+        id: '2019-10-25T20-14-37',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -966,28 +960,29 @@ proxies <span class="token operator">=</span> <span class="token punctuation">[<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/18/scrapy-4/">
+                <a href="/2019/10/25/pandas-test-1/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="Scrapy应用(四)">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="pandas练习题">
                         
-                        <span class="card-title">Scrapy应用(四)</span>
+                        <span class="card-title">pandas练习题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            爬小说改进、并发
+                            战术总结
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1000,15 +995,16 @@ proxies <span class="token operator">=</span> <span class="token punctuation">[<
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/爬虫/" target="_blank">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/pandas/" target="_blank">
+                        <span class="chip bg-color">pandas</span>
                     </a>
                     
-                    <a href="/tags/Scrapy/" target="_blank">
-                        <span class="chip bg-color">Scrapy</span>
+                    <a href="/tags/数据分析/" target="_blank">
+                        <span class="chip bg-color">数据分析</span>
                     </a>
                     
                 </div>
@@ -1022,23 +1018,23 @@ proxies <span class="token operator">=</span> <span class="token punctuation">[<
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/17/scrapy-2/">
+                <a href="/2019/10/21/fateimg/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Scrapy应用(二)">
+                        <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="Selenium应用(一)">
                         
-                        <span class="card-title">Scrapy应用(二)</span>
+                        <span class="card-title">Selenium应用(一)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            代理ip并筛选
+                            从wiki爬取所有英灵的链接
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-17
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-21
                             </span>
                         <span class="publish-author">
                             
@@ -1059,8 +1055,8 @@ proxies <span class="token operator">=</span> <span class="token punctuation">[<
                         <span class="chip bg-color">爬虫</span>
                     </a>
                     
-                    <a href="/tags/Scrapy/" target="_blank">
-                        <span class="chip bg-color">Scrapy</span>
+                    <a href="/tags/Selenium/" target="_blank">
+                        <span class="chip bg-color">Selenium</span>
                     </a>
                     
                 </div>
