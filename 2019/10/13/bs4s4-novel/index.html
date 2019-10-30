@@ -390,7 +390,7 @@ def get_html(url):
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        618
+                        617
                     </div>
                     
 
@@ -481,7 +481,7 @@ def get_html(url):
     获取小说每个章节的文本
     并写入到本地
     '''</span>
-    html <span class="token operator">=</span> get_html<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'&lt;br /&gt;'</span><span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+    html <span class="token operator">=</span> get_html<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'&lt;br />'</span><span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
     soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span> <span class="token string">'lxml'</span><span class="token punctuation">)</span>
     <span class="token keyword">try</span><span class="token punctuation">:</span>
         txt <span class="token operator">=</span> soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span> id<span class="token operator">=</span><span class="token string">'content'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>
@@ -1009,7 +1009,7 @@ list2 <span class="token operator">=</span><span class="token punctuation">[</sp
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">25.1k</span>&nbsp;字
+                class="white-color">27.3k</span>&nbsp;字
             
             
             
