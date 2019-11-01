@@ -473,14 +473,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.3k
+                        6.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        25 分
                     </div>
                     
                 
@@ -710,6 +710,531 @@
 <blockquote>
 <p>选择语句  switch语句<br> 编写格式<br>    swtich(表达式){<br>    case 常量1 :<br>      要执行的语句;<br>    break;<br>    case 常量2 :<br>      要执行的语句;<br>    break;<br>    case 常量3 :<br>      要执行的语句;<br>    break;<br>    default:<br>      要执行的语句;<br>    break;<br>  }<br>  执行流程:  表达式,和case后面的常量进行比较<br>  和哪个case后的常量相同,就执行哪个case后面的程序,遇到break,就全结束<br>  关键字: switch case default break<br>  switch语句中的表达式的数据类型,是有要求的<br>  JDK1.0 - 1.4  数据类型接受 byte short int char<br>  JDK1.5   数据类型接受 byte short int char enum(枚举)<br>  JDK1.7   数据类型接受 byte short int char enum(枚举), String</p>
 </blockquote>
+<h2 id="方法、重载"><a href="#方法、重载" class="headerlink" title="方法、重载"></a>方法、重载</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+   方法的定义格式
+      修饰符 返回值类型 方法的名字 (参数列表...){
+       方法的功能主体
+         循环,判断,变量,比较,运算
+       return ;
+    }
+
+   修饰符:  固定写法  public static
+   返回值类型:  方法在运算后,结果的数据类型
+   方法名:  自定义名字,满足标识符规范, 方法名字首字母小写,后面每个单词首字母大写
+   参数列表: 方法的运算过程中,是否有未知的数据, 如果有未知的数据,定义在参数列表上 (定义变量)
+   return: 方法的返回, 将计算的结果返回. 结束方法
+*/</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MethodDemo</span><span class="token punctuation">{</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token comment" spellcheck="true">//调用方法, 方法执行起来</span>
+     <span class="token comment" spellcheck="true">// 在方法main中,调用方法 getArea</span>
+
+     <span class="token keyword">int</span> area <span class="token operator">=</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"面积是: "</span><span class="token operator">+</span>area<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">/*
+     要求: 计算一个长方形的面积
+     定义方法解决这个要求
+     分析方法定义过程:
+        1. 明确方法计算后的结果的数据类型 int  定义格式对应的就是返回值类型
+      2. 方法计算过程中,有没有未知的数据, 宽和长, 未知数据的数据类型 int
+          未知数的变量,定义在方法的小括号内
+  */</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span>  <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token keyword">int</span> w<span class="token punctuation">,</span> <span class="token keyword">int</span> h<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//实现方法的功能主体</span>
+    <span class="token comment" spellcheck="true">//int area = w * h;</span>
+    <span class="token keyword">return</span> w <span class="token operator">*</span> h<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>方法,调用中的参数传递问题<br>     1. 方法参数是基本数据类型</p>
+<ol start="2">
+<li>方法参数是引用类型<br>传递的是内存地址!</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>方法的重载特性 (overload)<br>  在同一个类中,允许出现同名的方法,只要方法的参数列表不同即可,这样方法就是重载<br>  参数列表不同: 参数的个数,数据类型,顺序<br>  方法重载的注意事项</p>
+<ol>
+<li>参数列表必须不同</li>
+<li>重载和参数变量名无关</li>
+<li>重载和返回值类型无关</li>
+<li>重载和修饰符无关<br>技巧: 重载看方法名和参数列表</li>
+</ol>
+</blockquote>
+<h2 id="实现引用类型、ArrayList"><a href="#实现引用类型、ArrayList" class="headerlink" title="实现引用类型、ArrayList"></a>实现引用类型、ArrayList</h2><p><strong>实现引用类型</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+   测试,刚定义好的Phone类
+   创建引用类型变量的格式
+
+     数据类型  变量名 = new 数据类型();
+
+  实现引用类型的步骤
+    1: 导入包 , 类如果都是在同一个文件夹,不需要导入包
+    2: 创建引用类型的变量
+    3: 变量.类型中的功能
+  文件结构：
+  pack
+    Phone.java
+  test.java
+*/</span>
+<span class="token keyword">package</span> pack<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">test</span><span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 2: 创建引用类型的变量</span>
+    Phone p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Phone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//System.out.println(p);  //输出内存的地址</span>
+
+      <span class="token comment" spellcheck="true">//3: 变量.类型中的功能</span>
+    <span class="token comment" spellcheck="true">//变量 p.的方式,调用类中的属性</span>
+    <span class="token comment" spellcheck="true">//属性就是变量 , 赋值和获取值</span>
+    p<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">"土豪金"</span><span class="token punctuation">;</span>
+    p<span class="token punctuation">.</span>brand <span class="token operator">=</span> <span class="token string">"爱立信"</span><span class="token punctuation">;</span>
+    p<span class="token punctuation">.</span>size <span class="token operator">=</span> <span class="token number">5.0</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//获取属性值</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>color<span class="token operator">+</span><span class="token string">"  "</span><span class="token operator">+</span>p<span class="token punctuation">.</span>brand<span class="token operator">+</span><span class="token string">"  "</span><span class="token operator">+</span>p<span class="token punctuation">.</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>ArrayList</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+   ArrayList集合的使用
+   也是引用数据类型
+   步骤:
+     1. 导入包 java.util包中
+   2. 创建引用类型的变量
+     数据类型&lt; 集合存储的数据类型>  变量名 = new 数据类型 &lt;集合存储的数据类型>  ();
+     集合存储的数据类型: 要将数据存储到集合的容器中
+     创建集合引用变量的时候,必须要指定好,存储的类型是什么
+
+     ArrayList&lt;String> array = new ArrayList&lt;String>();
+
+   3. 变量名.方法
+
+   注意: 集合存储的数据,8个基本类型对应8个引用类型
+   存储引用类型,不存储基本类型
+*/</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArrayListDemo</span><span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//创建集合容器,指定存储的数据类型</span>
+    <span class="token comment" spellcheck="true">//存储字符串</span>
+    ArrayList<span class="token operator">&lt;</span>String<span class="token operator">></span> array <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//创建集合容器,存储整数</span>
+    ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> array2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Integer<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//创建集合容器,存储手机类型</span>
+    ArrayList<span class="token operator">&lt;</span>Phone<span class="token operator">></span> array3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Phone<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>ArrayList 集合中的方法</strong></p>
+<blockquote>
+<p>  add(参数) 向集合中添加元素,数据存储进去<br>   方法中的参数类型,定义集合对象时候的类型是一致<br>   ArrayList<integer> array = new ArrayList<integer>();<br>   array.add(3);<br>   get(int index) 取出集合中的元素,get方法的参数,写入索引<br>   size() 返回集合的长度, 集合存储元素的个数<br>   add(int 索引,存储的元素) 将元素添加到指定的索引上<br>   set(int 索引,修改后的元素) 将指定索引的元素,进行修改<br>   remove(int 索引) 删除指定索引上的元素<br>   clear() 清空集合中的所有元素</integer></integer></p>
+</blockquote>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>demo01<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+ *  类的方式,描述现实中的事物 小汽车
+ *
+ *    小汽车  属性和功能
+ *      属性: 颜色  轮胎个数    变量定义
+ *      功能: 跑  方法
+ *
+ *    属性和方法,都属于类的成员
+ *
+ *    属性, 成员变量
+ *    方法, 成员方法
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//定义Car类的属性</span>
+
+  <span class="token comment" spellcheck="true">//定义颜色属性</span>
+  String color <span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//定义轮胎个数</span>
+
+  <span class="token keyword">int</span> count <span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">//定义跑的功能</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"小汽车在跑 ..."</span><span class="token operator">+</span>color<span class="token operator">+</span><span class="token string">"..."</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>demo01<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+ *   测试,自定义的类Car
+ *   创建出Car类的变量
+ *   变量,调用属性,成员变量
+ *   变量,调用方法
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CarTest</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//创建出Car类的变量 , 创建出Car类的对象,小汽车真的有了</span>
+    Car c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//对象.调用类中的属性和方法</span>
+    c<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">"无色"</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span>count <span class="token operator">=</span> <span class="token number">5</span> <span class="token punctuation">;</span>
+
+    c<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>成员变量和局部变量的区别</strong></p>
+<blockquote>
+<ol>
+<li>定义位置上的区别<br>成员变量,定义在类中,方法外<br>局部变量,方法内,语句内<ol start="2">
+<li>作用域不同<br>成员变量,作用范围是整个类<br>局部变量,方法内,语句内</li>
+<li>默认值不同<br>成员变量,有自己的默认值<br>局部变量,没有默认值,不赋值不能使用</li>
+<li>内存位置不同<br>成员变量,跟随对象进入堆内存存储<br>局部变量,跟随自己的方法,进入栈内存</li>
+<li>生命周期不同<br>成员变量,跟随对象,在堆中存储,内存等待JVM清理 , 生命相对较长<br>局部变量,跟随方法,方法出栈生命相对较短</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<p><strong>提高安全问题: 让外面的类,不允许直接调用我的成员变量</strong></p>
+<blockquote>
+<p>新的关键字  private 私有   属于成员修饰符,不能修饰局部变量<br> 被private修饰的成员,只能在自己的本类中被使用<br> 对私有变量,提供公共的访问方式: 方法<br> private int age ;</p>
+</blockquote>
+<p><strong>this关键字:</strong></p>
+<blockquote>
+<ul>
+<li>区分成员变量和局部变量同名情况<ul>
+<li>方法中,方位成员变量,写this.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p><strong>extends</strong></p>
+<blockquote>
+<p>   关键字 extends<br>     子类是Develop, 父类是Employee<br>     子类自动拥有父类中可以继承的属性和方法<br>     public class Develop extends Employee{<br>      //在子类中,可以定义方法<br>      public void print(){<br>        System.out.println(name);<br>      }<br>    }<br>     子类中,可以直接调用父类的成员</p>
+</blockquote>
+<p><strong>super</strong></p>
+<blockquote>
+<p>在子类中,调用父类的成员,关键字 super.调用父类的成员<br>  子类 (派生类)  继承父类  (超类,基类)<br>  this.调用自己本类成员<br>  super.调用的自己的父类成员<br>  public void showNum(){<br>        //父类的中的方法showNum已经可以号码,子类直接用<br>        super.showNum();<br>        System.out.println(“显示姓名”);<br>  }</p>
+</blockquote>
+<p><strong>Override</strong></p>
+<blockquote>
+<p>继承后,子类父类中成员方法的特点<br>       子类的对象,调用方法的时候<br>       子类自己有,使用子类<br>       子类自己没有,调用的是父类<br>    重载: 方法名一样,参数列表不同,同一个类的事情<br>    方法的重写  Override<br>      子类中,出现了和父类一模一样的方法的时候, 子类重写父类的方法, 覆盖</p>
+</blockquote>
+<blockquote>
+<p>子类重写父类的方法,<br> 保证子类方法的权限大于或者等于父类方法权限<br> 四大权限  public &gt; protected   default  private</p>
+</blockquote>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p><strong>Develop.java</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>demo06<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+ *  定义类开发工程师类
+ *    EE开发工程师 :  工作
+ *    Android开发工程师 : 工作
+ *
+ *    根据共性进行抽取,然后形成一个父类Develop
+ *    定义方法,工作: 怎么工作,具体干什么呀
+ *
+ *    抽象类,不能实例化对象, 不能new的
+ *    不能创建对象的原因:  如果真的让你new了, 对象.调用抽象方法,抽象方法没有主体,根本就不能运行
+ *    子类的方法必须覆盖父类的抽象方法
+ *    抽象类使用: 定义类继承抽象类,将抽象方法进行重写,创建子类的对象
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Develop</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">//定义方法工作方法,但是怎么工作,说不清楚了,讲不明白</span>
+  <span class="token comment" spellcheck="true">//就不说, 方法没有主体的方法,必须使用关键字abstract修饰</span>
+  <span class="token comment" spellcheck="true">//抽象的方法,必须存在于抽象的类中,类也必须用abstract修饰</span>
+  <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>JavaEE.java</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>demo06<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+ *  定义类,JavaEE的开发人员
+ *  继承抽象类Develop,重写抽象的方法
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JavaEE</span> <span class="token keyword">extends</span> <span class="token class-name">Develop</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//重写父类的抽象方法</span>
+  <span class="token comment" spellcheck="true">//去掉abstract修饰符,加上方法主体</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"JavaEE工程师在开发B/S 软件"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Test.java</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+ *  测试抽象类
+ *    创建他的子类的对象,使用子类的对象调用方法
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     JavaEE ee <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JavaEE</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     ee<span class="token punctuation">.</span><span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+ *   抽象类,可以没有抽象方法,可以定义带有方法体的方法
+ *   让子类继承后,可以直接使用
+ */</span>
+<span class="token keyword">public</span>  <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+       System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"动物睡觉"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// private abstract void show();</span>
+     <span class="token comment" spellcheck="true">//抽象方法,需要子类重写, 如果父类方法是私有的,子类继承不了,也就没有了重写</span>
+<span class="token punctuation">}</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p><strong>MyInterface.java</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+ * 定义接口
+ *   使用关键字interface  接口名字
+ * 接口定义:
+ *    成员方法,全抽象
+ *    不能定义带有方法体的方法
+ *
+ * 定义抽象方法: 固定格式
+ *
+ *   public abstract 返回值类型  方法名字(参数列表);
+ *   修饰符 public  写,或者不写,都是public
+ *
+ *  接口中成员变量的定义
+ *    成员变量的定义,具体要求
+ *
+ *    要求 : 必须定义为常量
+ *    固定格式:
+ *      public static final 数据类型 变量名 = 值
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterface</span> <span class="token punctuation">{</span>
+
+  <span class="token comment" spellcheck="true">//public static final int a = 1;</span>
+
+  <span class="token comment" spellcheck="true">//在接口中,定义抽象的方法</span>
+  <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>MyInterfaceImpl.java</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+ *   定义类, 实现接口,重写接口中的抽象方法
+ *   创建实现类的对象
+ *
+ *   类实现接口, 可以理解为继承
+ *
+ *   关键字  implements
+ *   class 类 implements 接口{
+ *     重写接口中的抽象方法
+ *   }
+ *   类实现接口
+ *   class MyInterfaceImpl implements MyInterface
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyInterfaceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">MyInterface</span><span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"实现类,重写接口抽象方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Test.java</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//创建接口的实现类的对象</span>
+    MyInterfaceImpl my <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyInterfaceImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    my<span class="token punctuation">.</span><span class="token function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>接口中成员的特点</strong></p>
+<blockquote>
+<ol>
+<li>成员变量的特点, 没有变量,都是常量<br>  固定定义格式: public static final 数据类型 变量名 = 值<br>  public  权限<br>  static  可以被类名直接.调用<br>  final   最终,固定住变量的值<br> 注意: public static final 修饰符,在接口的定义中,可以省略不写<br>  但是,不写不等于没有<br>  三个修饰符,还可以选择性书写<ol start="2">
+<li>接口中的成员方法特点:<br>public abstract 返回值类型 方法名(参数列表)<br>修饰符  public abstract 可以不写,选择性书写<br>但是,写不写,都有</li>
+<li>实现类,实现接口,重写接口全部抽象方法,创建实现类对象<br>实现类,重写了一部分抽象方法,实现类,还是一个抽象类</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>重写接口中的抽象方法, public权限是必须的</p>
+</blockquote>
+<p><strong>可实现多个接口</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+ *   类C,同时去实现2个接口,接口A,B
+ *   作为实现类,C,全部重写两个接口的所有抽象方法,才能建立C类的对象
+ *
+ *   C类,在继承一个类的同时,可以实现多个接口
+ *   public interface A {
+ *     public abstract void a();
+ *   }
+ *   public interface B {
+ *      public abstract  void b();
+ *   }
+ *   public abstract class D {
+ *      public abstract void d();
+ *   }
+ */</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token keyword">extends</span> <span class="token class-name">D</span> <span class="token keyword">implements</span> <span class="token class-name">A</span><span class="token punctuation">,</span>B<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">d</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>接口多继承</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>demo04<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+ *   实现接口C,重写C接口的全部抽象方法
+ *   而且接口C,继承A,B
+ *   D实现类,重写A,B,C三接口全部抽象方法
+ *
+ *   问: Java中有多继承吗
+ *    类没有多继承
+ *    接口之间多继承
+ *    public interface A {
+ *      public abstract void a();
+ *    }
+ *    public interface B {
+ *      public abstract void b();
+ *    }
+ *    public interface C extends A,B{
+ *      public abstract void c();
+ *    }
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">D</span> <span class="token keyword">implements</span> <span class="token class-name">C</span><span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>多态</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 多态调用方法,方法必须运行子类的重写!!</span>
+<span class="token comment" spellcheck="true">//Java中,对象的多态性,调用程序中的方法</span>
+<span class="token comment" spellcheck="true">// 公式:  父类类型或者是接口类型   变量  = new 子类的对象();</span>
+Fu  f  <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Zi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+f<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//抽象类Animal,子类是Cat</span>
+Animal a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+a<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//接口Smoking,实现类Student</span>
+Smoking sk <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+sk<span class="token punctuation">.</span><span class="token function">smoking</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>多态中,成员特点</strong></p>
+<blockquote>
+<p>  成员变量:<br>      编译的时候, 参考父类中有没有这个变量,如果有,编译成功,没有编译失败<br>      运行的时候, 运行的是父类中的变量值<br>     编译运行全看父类<br>    成员方法:<br>      编译的时候, 参考父类中有没有这个方法,如果有,编译成功,没有编译失败<br>      运行的时候, 运行的是子类的重写方法<br>     编译看父类,运行看子类</p>
+</blockquote>
+<p><strong>关键字instanceof</strong></p>
+<blockquote>
+<p>运算符比较运算符, 结果真假值<br>   关键字, instanceof, 比较引用数据类型<br>   Person p = new Student();<br>   p  = new Teacher()<br>   关键字 instanceof 比较, 一个引用类型的变量,是不是这个类型的对象<br>   p变量,是Student类型对象,还是Teacher类型对象<br>     引用变量 instanceof 类名<br>     p instanceof Student  比较,p是不是Student类型的对象,如果是,intanceof返回true</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>  //两个子类,使用两次多态调用<br>    Animal a1 = new Cat();<br>    Animal a2 = new Dog();<br>    //a1,a2调用子类父类共有方法,运行走子类的重写<br>    a1.eat();<br>    a2.eat();<br>    //类型向下转型,强制转换,调用子类的特有<br>    //防止发生异常: a1属于Cat对象,转成Cat类,  a2属于Dog对象,转成Dog<br>    //instanceof判断<br>    if(a1 instanceof Cat){<br>      Cat c = (Cat)a1;<br>      c.catchMouse();<br>    }<br>    if(a2 instanceof Dog){<br>      Dog d = (Dog)a2;<br>      d.lookHome();<br>    }</p>
+</blockquote>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p><strong>Person.java</strong></p>
+<pre class="line-numbers language-Java"><code class="language-Java">/*
+ *  自定义的Person类.成员变量,name age
+ *  要求在 new Person的同时,就指定好name,age的值
+ *  实现功能,利用方法去实现, 构造方法,构造器 Constructor
+ *  作用: 在new 的同时对成员变量赋值, 给对象的属性初始化赋值  new Person 对属性 name,age赋值
+ *
+ *  构造方法的定义格式
+ *    权限  方法名(参数列表){
+ *    }
+ *    方法的名字,必须和类的名字完全一致
+ *    构造方法不允许写返回值类型  , void 也不能写
+ *
+ *    构造方法在什么时候,运行呢, 在new 的时候,自动执行
+ *    只运行一次,仅此而已
+ *
+ *    每个class必须拥有构造方法,构造方法不写也有
+ *    编译的时候,javac, 会自动检查类中是否有构造方法
+ *    如果有,就这样的
+ *    如果没有,编译器就会自动添加一个构造方法
+ *      编译器自动添加的构造方法: public Person(){}
+ *    自己手写了构造方法,编译的时候,不会自动添加构造方法!
+ */
+public class Person {
+  private String name;
+  private int age;
+
+  //定义出Person类的构造方法
+  public  Person(String name,int age){
+    this.name = name;
+    this.age = age;
+    //System.out.println("我是一个空参数构造方法");
+  }
+
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+  public int getAge() {
+    return age;
+  }
+  public void setAge(int age) {
+    this.age = age;
+  }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Test.java</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>demo01<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+ *  new 对象的时候,就是在调用对象的构造方法
+ *   new Person(); 调用的是类中的空参数构造方法
+ *   new Person("张三",20); 调用类中的有参数构造方法
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Person p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//对象p 调用方法getName,getAge</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>this可以在构造方法之间进行调用<br>this.的方式,区分局部变量和成员变量同名情况<br>this在构造方法之间的调用,语法 this()</p>
+<pre><code> public Person(){
+    //调用了有参数的构造方法
+    //参数李四,20传递给了变量name,age
+    this("李四",20);
+  }</code></pre><p>构造方法,传递String,int<br>在创建对象的同时为成员变量赋值</p>
+<pre><code>public Person(String name,int age){
+  this.name = name;
+  this.age = age;
+}</code></pre></blockquote>
+<blockquote>
+<p>子类中,super()的方式,调用父类的构造方法<br>super()调用的是父类的空参数构造<br>super(参数) 调用的是父类的有参数构造方法<br>子类的构造方法, 有一个默认添加的构造方法<br>注意: 子类构造方法的第一行,有一个隐式代码 super()</p>
+<pre><code>public Student(){
+    super();
+}</code></pre><p>子类的构造方法第一行super语句,调用父类的构造方法</p>
+<pre><code>public class Student extends Person{
+  public Student(){
+    super();
+  }
+}</code></pre></blockquote>
+<blockquote>
+<p>构造方法第一行,写this()还是super()<br>不能同时存在,任选其一,保证子类的所有构造方法调用到父类的构造方法即可<br>小结论: 无论如何,子类的所有构造方法,直接,间接必须调用到父类构造方法<br>子类的构造方法,什么都不写,默认的构造方法第一行 super();</p>
+<pre><code>public class Student extends Person{
+  public Student(){
+    //调用的是自己的构造方法
+    //间接形式调用到了父类的构造方法
+    this("abc");
+  }
+}</code></pre></blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1294,7 +1819,7 @@
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.3k</span>&nbsp;字
+                class="white-color">31.6k</span>&nbsp;字
             
             
             
