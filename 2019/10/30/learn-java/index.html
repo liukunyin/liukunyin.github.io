@@ -810,11 +810,11 @@
    步骤:
      1. 导入包 java.util包中
    2. 创建引用类型的变量
-     数据类型&lt; 集合存储的数据类型>  变量名 = new 数据类型 &lt;集合存储的数据类型>  ();
+     数据类型&lt; 集合存储的数据类型&gt;  变量名 = new 数据类型 &lt;集合存储的数据类型&gt;  ();
      集合存储的数据类型: 要将数据存储到集合的容器中
      创建集合引用变量的时候,必须要指定好,存储的类型是什么
 
-     ArrayList&lt;String> array = new ArrayList&lt;String>();
+     ArrayList&lt;String&gt; array = new ArrayList&lt;String&gt;();
 
    3. 变量名.方法
 
@@ -826,13 +826,13 @@
   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//创建集合容器,指定存储的数据类型</span>
     <span class="token comment" spellcheck="true">//存储字符串</span>
-    ArrayList<span class="token operator">&lt;</span>String<span class="token operator">></span> array <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> array <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>String<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment" spellcheck="true">//创建集合容器,存储整数</span>
-    ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> array2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Integer<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> array2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment" spellcheck="true">//创建集合容器,存储手机类型</span>
-    ArrayList<span class="token operator">&lt;</span>Phone<span class="token operator">></span> array3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Phone<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ArrayList<span class="token operator">&lt;</span>Phone<span class="token operator">&gt;</span> array3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Phone<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1576,7 +1576,7 @@ public class Person {
     <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//对数组的5索引进行判断,如果5索引大于100,请将5索引上的数据/2,否则除以3</span>
     <span class="token comment" spellcheck="true">//索引根本就没有</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
       arr<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
       arr<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">;</span>
@@ -2244,7 +2244,7 @@ public class Person {
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">37.1k</span>&nbsp;字
+                class="white-color">40.9k</span>&nbsp;字
             
             
             
