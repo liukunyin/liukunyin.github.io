@@ -471,14 +471,14 @@ url = jdbc:mysql://localhost:3306/steam?serverTimezone=UTC&amp;c">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        884
+                        1.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        9 分
                     </div>
                     
                 
@@ -707,6 +707,178 @@ password = 000323624
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="结果处理集"><a href="#结果处理集" class="headerlink" title="结果处理集"></a>结果处理集</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Connection<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>SQLException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Map<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>dbutils<span class="token punctuation">.</span>QueryRunner<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>dbutils<span class="token punctuation">.</span>handlers<span class="token punctuation">.</span>ArrayHandler<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>dbutils<span class="token punctuation">.</span>handlers<span class="token punctuation">.</span>ArrayListHandler<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>dbutils<span class="token punctuation">.</span>handlers<span class="token punctuation">.</span>BeanHandler<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>dbutils<span class="token punctuation">.</span>handlers<span class="token punctuation">.</span>BeanListHandler<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>dbutils<span class="token punctuation">.</span>handlers<span class="token punctuation">.</span>ColumnListHandler<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>dbutils<span class="token punctuation">.</span>handlers<span class="token punctuation">.</span>MapHandler<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>dbutils<span class="token punctuation">.</span>handlers<span class="token punctuation">.</span>MapListHandler<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>dbutils<span class="token punctuation">.</span>handlers<span class="token punctuation">.</span>ScalarHandler<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>domain<span class="token punctuation">.</span>Sort<span class="token punctuation">;</span>
+<span class="token keyword">import</span> cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>jdbcutil<span class="token punctuation">.</span>JDBCUtilsConfig<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/*
+ * QueryRunner数据查询操作:
+ *   调用QueryRunner类方法query(Connection con,String sql,ResultSetHandler r, Object..params)
+ *   ResultSetHandler r 结果集的处理方式,传递ResultSetHandler接口实现类
+ *   Object..params SQL语句中的?占位符
+ *
+ *   注意: query方法返回值,返回的是T 泛型, 具体返回值类型,跟随结果集处理方式变化
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">QueryRunnerDemo1</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> Connection con <span class="token operator">=</span> JDBCUtilsConfig<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> SQLException<span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">//    arrayHandler();</span>
+<span class="token comment" spellcheck="true">//    arrayListHandler();</span>
+<span class="token comment" spellcheck="true">//    beanHandler();</span>
+<span class="token comment" spellcheck="true">//    beanListHander();</span>
+<span class="token comment" spellcheck="true">//    columnListHandler();</span>
+<span class="token comment" spellcheck="true">//    scalarHandler();</span>
+<span class="token comment" spellcheck="true">//    mapHandler();</span>
+<span class="token comment" spellcheck="true">//    mapListHandler();</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">/*
+   *  结果集第八种处理方法,MapListHandler
+   *  将结果集每一行存储到Map集合,键:列名,值:数据
+   *  Map集合过多,存储到List集合
+   */</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">mapListHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span> SQLException<span class="token punctuation">{</span>
+    QueryRunner qr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryRunner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    String sql <span class="token operator">=</span> <span class="token string">"SELECT  * FROM sort"</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//调用方法query,传递结果集实现类MapListHandler</span>
+    <span class="token comment" spellcheck="true">//返回值List集合, 存储的是Map集合</span>
+    List<span class="token operator">&lt;</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">>></span> list <span class="token operator">=</span> qr<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>con<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">MapListHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//遍历集合list</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span> Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">></span> map <span class="token operator">:</span> list <span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">for</span><span class="token punctuation">(</span>String key <span class="token operator">:</span> map<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>key<span class="token operator">+</span><span class="token string">"..."</span><span class="token operator">+</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">/*
+   *  结果集第七种处理方法,MapHandler
+   *  将结果集第一行数据,封装到Map集合中
+   *  Map&lt;键,值> 键:列名  值:这列的数据
+   */</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">mapHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span> SQLException<span class="token punctuation">{</span>
+    QueryRunner qr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryRunner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    String sql <span class="token operator">=</span> <span class="token string">"SELECT  * FROM sort"</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//调用方法query,传递结果集实现类MapHandler</span>
+    <span class="token comment" spellcheck="true">//返回值: Map集合,Map接口实现类, 泛型</span>
+    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">></span> map <span class="token operator">=</span> qr<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>con<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">MapHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//遍历Map集合</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>String key <span class="token operator">:</span> map<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>key<span class="token operator">+</span><span class="token string">".."</span><span class="token operator">+</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+
+  <span class="token comment" spellcheck="true">/*
+   *  结果集第六种处理方法,ScalarHandler
+   *  对于查询后,只有1个结果
+   */</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">scalarHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span> SQLException<span class="token punctuation">{</span>
+    QueryRunner qr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryRunner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    String sql <span class="token operator">=</span> <span class="token string">"SELECT COUNT(*) FROM sort"</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//调用方法query,传递结果集处理实现类ScalarHandler</span>
+    <span class="token keyword">long</span> count <span class="token operator">=</span> qr<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>con<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ScalarHandler</span><span class="token operator">&lt;</span>Long<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">/*
+   *  结果集第五种处理方法,ColumnListHandler
+   *  结果集,指定列的数据,存储到List集合
+   *  List&lt;Object> 每个列数据类型不同
+   */</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">columnListHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span> SQLException<span class="token punctuation">{</span>
+    QueryRunner qr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryRunner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    String sql <span class="token operator">=</span> <span class="token string">"SELECT * FROM sort "</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//调用方法 query,传递结果集实现类ColumnListHandler</span>
+    <span class="token comment" spellcheck="true">//实现类构造方法中,使用字符串的列名</span>
+    List<span class="token operator">&lt;</span>Object<span class="token operator">></span> list <span class="token operator">=</span> qr<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>con<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ColumnListHandler</span><span class="token operator">&lt;</span>Object<span class="token operator">></span><span class="token punctuation">(</span><span class="token string">"sname"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>Object obj <span class="token operator">:</span> list<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">/*
+   *  结果集第四种处理方法, BeanListHandler
+   *  结果集每一行数据,封装JavaBean对象
+   *  多个JavaBean对象,存储到List集合
+   */</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">beanListHander</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span> SQLException<span class="token punctuation">{</span>
+    QueryRunner qr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryRunner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    String sql <span class="token operator">=</span> <span class="token string">"SELECT * FROM sort "</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//调用方法query,传递结果集处理实现类BeanListHandler</span>
+    List<span class="token operator">&lt;</span>Sort<span class="token operator">></span> list <span class="token operator">=</span> qr<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>con<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BeanListHandler</span><span class="token operator">&lt;</span>Sort<span class="token operator">></span><span class="token punctuation">(</span>Sort<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>Sort s <span class="token operator">:</span> list<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">/*
+   *  结果集第三种处理方法,BeanHandler
+   *  将结果集的第一行数据,封装成JavaBean对象
+   *  注意: 被封装成数据到JavaBean对象, Sort类必须有空参数构造
+   */</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">beanHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span> SQLException<span class="token punctuation">{</span>
+    QueryRunner qr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryRunner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    String sql <span class="token operator">=</span> <span class="token string">"SELECT * FROM sort "</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//调用方法,传递结果集实现类BeanHandler</span>
+    <span class="token comment" spellcheck="true">//BeanHandler(Class&lt;T> type)</span>
+    Sort s <span class="token operator">=</span> qr<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>con<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BeanHandler</span><span class="token operator">&lt;</span>Sort<span class="token operator">></span><span class="token punctuation">(</span>Sort<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">/*
+   *  结果集第二种处理方法,ArrayListHandler
+   *  将结果集的每一行,封装到对象数组中, 出现很多对象数组
+   *  对象数组存储到List集合
+   */</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">arrayListHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span> SQLException<span class="token punctuation">{</span>
+    QueryRunner qr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryRunner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    String sql <span class="token operator">=</span> <span class="token string">"SELECT * FROM sort"</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//调用query方法,结果集处理的参数上,传递实现类ArrayListHandler</span>
+    <span class="token comment" spellcheck="true">//方法返回值 每行是一个对象数组,存储到List</span>
+    List<span class="token operator">&lt;</span>Object<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> result<span class="token operator">=</span>  qr<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>con<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ArrayListHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//集合的遍历</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span> Object<span class="token punctuation">[</span><span class="token punctuation">]</span> objs  <span class="token operator">:</span> result<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">//遍历对象数组</span>
+      <span class="token keyword">for</span><span class="token punctuation">(</span>Object obj <span class="token operator">:</span> objs<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>obj<span class="token operator">+</span><span class="token string">"  "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">/*
+   *  结果集第一种处理方法, ArrayHandler
+   *  将结果集的第一行存储到对象数组中  Object[]
+   */</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">arrayHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span> SQLException<span class="token punctuation">{</span>
+    QueryRunner qr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryRunner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    String sql <span class="token operator">=</span> <span class="token string">"SELECT * FROM sort"</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//调用方法query执行查询,传递连接对象,SQL语句,结果集处理方式的实现类</span>
+    <span class="token comment" spellcheck="true">//返回对象数组</span>
+    Object<span class="token punctuation">[</span><span class="token punctuation">]</span> result <span class="token operator">=</span> qr<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>con<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ArrayHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>Object obj <span class="token operator">:</span> result<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1282,7 +1454,7 @@ password = 000323624
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.8k</span>&nbsp;字
+                class="white-color">44.7k</span>&nbsp;字
             
             
             
